@@ -1,4 +1,4 @@
-# merge-sessions.R
+# merge.sessions.R
 #
 # Script to merge session-level data files
 #
