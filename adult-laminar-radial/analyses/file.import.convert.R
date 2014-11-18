@@ -17,7 +17,7 @@ bulk.import.convert.sessions <- function( data.dir="../data",
   if ( current.tail == desired.wd ) {
     session.list = list.files(data.dir)
     if (verbose) {
-      cat("Sessions to convert include:\n", session.list)      
+      cat("Sessions to convert include:\n", session.list, "\n")      
     }
     sessions.df.list = lapply( session.list, import.convert.session, data.dir=data.dir, verbose=verbose )
     
@@ -42,7 +42,7 @@ import.convert.session <- function( session, data.dir="../data", verbose=TRUE ){
                                 pattern="deg\\-[1-4]\\.csv$" )
   
   if (verbose) {
-    cat("\nValid files in this session include:\n", files.in.session, "\n\n")
+    cat("\nValid files in", paste( session, "/", sep=""), "include:\n", files.in.session, "\n\n")
   }
   
   run.list = lapply( files.in.session, import.convert.run, session=session, data.dir=data.dir, verbose=verbose )
