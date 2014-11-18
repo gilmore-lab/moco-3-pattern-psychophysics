@@ -1,4 +1,4 @@
-# convert-sessions.R
+# convert.sessions.R
 #
 # Script to convert session-level data
 #
