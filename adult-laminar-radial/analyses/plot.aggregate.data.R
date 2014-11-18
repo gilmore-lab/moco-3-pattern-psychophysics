@@ -32,7 +32,7 @@ p.corr.tbl <- moco.tbl %>%
 pl <- ggplot(data=p.corr.tbl) + 
   facet_grid( facets = DegPSec ~ PatternType )
 
-pl.p.corr <- p +
+pl.p.corr <- pl +
   geom_boxplot( aes(x=ordered(Coh), y=P.Corr) )
 
 # Compute and plot RT for correct responses
