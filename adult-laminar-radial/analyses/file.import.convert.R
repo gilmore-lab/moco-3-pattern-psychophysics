@@ -79,14 +79,16 @@ import.convert.run <- function( run, session, data.dir, verbose=TRUE ){
   if (verbose) {
     cat("Adding new variables.\n")
   }
-  SessionDate = as.Date( substring(run, 1, 10) ) # YYYY-MM-DD
-  ParticipantID = as.numeric( substring( run, 12, 14 ) ) #NNN
+  # session.date and participant.ID match file naming from
+  # Databrary spreadsheet export. This expedites file merging.
+  session.date = as.Date( substring(run, 1, 10) ) # YYYY-MM-DD
+  participant.ID = as.numeric( substring( run, 12, 14 ) ) #NNN
   DegPSec = as.numeric( substring( run, nchar(run)-9, nchar(run)-9 ) )
   Run = as.numeric( substring( run, nchar(run)-4, nchar(run)-4 ) )
   
   # Add to dataframe
-  run.df$SessionDate = SessionDate
-  run.df$ParticipantID = ParticipantID
+  run.df$session.date = session.date
+  run.df$participant.ID = participant.ID
   run.df$Coh = run.df$LeftCoh + run.df$RightCoh
   run.df$Run = rep( Run, length( run.df$Coh) )
   run.df$DegPSec = rep( DegPSec, length( run.df$Coh) )
