@@ -2,10 +2,11 @@
 #
 # Load and plot P.corr and RT data
 #
-# Libraries: ggplot2, dplyr
+# Libraries: ggplot2, dplyr, nlme
 
 # History
 # 2014-11-18 rogilmore wrote
+# 2014-12-02 rogilmore modified
 
 # load libraries
 library(ggplot2)
@@ -21,49 +22,71 @@ moco$DegPSec = ordered( moco$DegPSec )
 moco$Acc = as.logical( moco$Acc )
 
 # convert to dplyr table
-moco.tbl <- tbl_df( moco )
+tbl.moco <- tbl_df( moco )
 
 # Compute and plot proportion correct by pattern and speed
-p.corr.tbl <- moco.tbl %>%
+tbl.p.corr <- tbl.moco %>%
   group_by( ParticipantID, DegPSec, PatternType, Coh ) %>%
   summarise( P.Corr=mean( Acc ) ) %>%
   filter( !is.na(P.Corr) )
 
-pl <- ggplot(data=p.corr.tbl) + 
+pl <- ggplot(data=tbl.p.corr) + 
   facet_grid( facets = DegPSec ~ PatternType )
 
 pl.p.corr <- pl +
   geom_boxplot( aes(x=ordered(Coh), y=P.Corr) )
 
 # Compute and plot RT for correct responses
-rt.tbl <- moco.tbl %>%
+tbl.rt <- tbl.moco %>%
   filter( Acc==TRUE ) %>%
-  group_by( ParticipantID, DegPSec, PatternType, Coh )
+  group_by( ParticipantID, DegPSec, PatternType, Coh ) 
 
-pl.rt <- pl %+% rt.tbl +
+pl.rt <- pl %+% tbl.rt +
   geom_boxplot( aes(x=ordered(Coh), y=RT) )
 
 # Simple mixed linear modeling
-p.corr.lme <- lme( P.Corr ~ Coh*PatternType*DegPSec, 
+lme.p.corr <- lme( P.Corr ~ ordered(Coh)*PatternType*DegPSec, 
                    random = ~ 1 | ParticipantID, 
-                   data=p.corr.tbl )
+                   data=tbl.p.corr )
 
-anova( p.corr.lme )
+anova( lme.p.corr )
 
 # Investigate PatternType x Coh Interaction
-p.corr.tbl %>%
-  group_by(PatternType, Coh) %>%
-  summarise( P.Corr.mean=mean(P.Corr))
+tbl.p.corr.by.spd.pattern.coh <- tbl.p.corr %>%
+  group_by(DegPSec, PatternType, Coh, ParticipantID) %>%
+  summarise( P.Corr.mean=mean(P.Corr, na.rm=TRUE) )
+
+qplot( data=tbl.p.corr.by.spd.pattern.coh, 
+       x=Coh, y=P.Corr.mean, 
+       group=ParticipantID, 
+       facets = DegPSec ~ PatternType, 
+       geom=c("point", "line"), 
+       color=as.factor(ParticipantID) )
 
 # RT model
-r.lme <- lme( RT ~ ordered(Coh)*PatternType*DegPSec, 
+lme.rt <- lme( RT ~ ordered(Coh)*PatternType*DegPSec, 
               random = ~ 1 | ParticipantID, 
               data=rt.tbl )
 
-anova( r.lme )
+anova( lme.rt )
 
 # Investigate Speed X Coh interaction
-rt.tbl %>% 
-  group_by(DegPSec, Coh ) %>%
-  summarise( RT.mean=mean(RT, na.rm=TRUE) )
+tbl.rt.by.spd.pattern.coh <- rt.tbl %>% 
+  group_by(DegPSec, PatternType, Coh, ParticipantID ) %>%
+  summarise( RT.mean=mean(RT, na.rm=TRUE), 
+             RT.sem=sd(RT, na.rm=TRUE)/sqrt( n() ) )
 
+# qplot( data=tbl.rt.by.spd.pattern.coh, 
+#        x=Coh, y=RT.mean, 
+#        group=ParticipantID, 
+#        facets = DegPSec ~ PatternType, 
+#        geom=c("point", "line"), 
+#        color=as.factor(ParticipantID) )
+
+limits = aes( ymax = RT.mean + RT.sem, ymin = RT.mean - RT.sem, group=ParticipantID )
+
+pl.rt.bysub.pointrange <- 
+  ggplot( data=tbl.rt.by.spd.pattern.coh, aes(x=Coh, y=RT.mean, group=ParticipantID, color=as.factor(ParticipantID)) ) +
+  facet_grid( facets = DegPSec ~ PatternType ) +
+  geom_line() +
+  geom_pointrange( limits )
