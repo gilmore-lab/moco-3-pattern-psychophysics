@@ -8,8 +8,27 @@
 # import session, illustrative example shown
 sess = read.csv("../data/2014-11-11-004/2014-11-11-004-combined.csv") 
 
+# Create new aggregate file
+source('bulk.import.convert.sessions.R')
+bulk.import.convert.sessions()
+
+#import aggregate
+agg=read.csv("../aggregate-data/adult-laminar-radial-grouped.csv")
+
 # load plotting library 
 library( ggplot2 )
+library( dplyr )
+
+df1 <- agg %>%
+  group_by( ParticipantID, PatternType, DegPSec, Coh ) %>%
+  summarise( p.corr=sum( Acc == TRUE )/n() ) 
+
+qplot( data=df1, x=Coh, 
+       y=p.corr, 
+       facets = PatternType ~ DegPSec, 
+       group=ParticipantID, 
+       geom=c("point", "smooth"), 
+       color=as.factor(ParticipantID) )
 
 # plot RTs
 qplot( x=as.factor(Coh), y=RT, facets = DegPSec ~ PatternType,geom="boxplot", data=sess )
