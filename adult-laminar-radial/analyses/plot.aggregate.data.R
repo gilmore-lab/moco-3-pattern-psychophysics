@@ -71,7 +71,7 @@ lme.rt <- lme( RT ~ ordered(Coh)*PatternType*DegPSec,
 anova( lme.rt )
 
 # Investigate Speed X Coh interaction
-tbl.rt.by.spd.pattern.coh <- rt.tbl %>% 
+tbl.rt.by.spd.pattern.coh <- tbl.rt %>% 
   group_by(DegPSec, PatternType, Coh, ParticipantID ) %>%
   summarise( RT.mean=mean(RT, na.rm=TRUE), 
              RT.sem=sd(RT, na.rm=TRUE)/sqrt( n() ) )
