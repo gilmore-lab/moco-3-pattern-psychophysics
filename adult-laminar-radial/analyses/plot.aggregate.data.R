@@ -93,13 +93,13 @@ pl.rt.bysub.pointrange <-
   geom_pointrange( limits )
 
 # Tables to investigate main effects and interactions
-
 tbl.rt %>%
   group_by( DegPSec, ParticipantID ) %>%
   summarise( Part.mean = mean(RT, na.rm=TRUE), ct=n() ) %>%
   group_by( DegPSec ) %>%
   summarise( Spd.mean = mean( Part.mean ), Spd.sem=sd( Part.mean )/sqrt( n() ) )
 
+# Plot RT differences by pattern across speeds by participant
 tbl.rt.patt.bysub <- tbl.rt %>%
   group_by( PatternType, ParticipantID ) %>%
   summarise( Part.mean = mean(RT, na.rm=TRUE), Part.sem = sd( RT )/sqrt(n()) ) %>%
@@ -109,6 +109,7 @@ ggplot( data=tbl.rt.patt.bysub ) +
   aes( x=ParticipantID, y=Part.mean, color=PatternType ) +
   geom_point()
 
+# Plot RT differences by speed across patterns by participant
 tbl.rt.spd.bysub <- tbl.rt %>%
   group_by( DegPSec, ParticipantID ) %>%
   summarise( Part.mean = mean(RT, na.rm=TRUE), Part.sem = sd( RT )/sqrt(n()) ) %>%
@@ -117,9 +118,3 @@ tbl.rt.spd.bysub <- tbl.rt %>%
 ggplot( data=tbl.rt.spd.bysub ) +
   aes( x=ParticipantID, y=Part.mean, color=DegPSec ) +
   geom_point()
-
-tbl.rt %>%
-  group_by( PatternType ) %>%
-  summarise( RT.mean = mean(RT, na.rm=TRUE) )
-  
-  
