@@ -20,6 +20,7 @@ moco <- read.csv("../aggregate-data/adult-laminar-radial-grouped.csv")
 moco$SessionDate = as.Date( moco$SessionDate )
 moco$DegPSec = ordered( moco$DegPSec )
 moco$Acc = as.logical( moco$Acc )
+moco$ParticipantID = as.factor( moco$ParticipantID )
 
 # convert to dplyr table
 tbl.moco <- tbl_df( moco )
@@ -61,12 +62,12 @@ qplot( data=tbl.p.corr.by.spd.pattern.coh,
        group=ParticipantID, 
        facets = DegPSec ~ PatternType, 
        geom=c("point", "line"), 
-       color=as.factor(ParticipantID) )
+       color=ParticipantID )
 
 # RT model
-lme.rt <- lme( RT ~ ordered(Coh)*PatternType*DegPSec, 
+lme.rt <- lme( RT ~ Coh*PatternType*DegPSec, 
               random = ~ 1 | ParticipantID, 
-              data=rt.tbl )
+              data=tbl.rt )
 
 anova( lme.rt )
 
@@ -86,7 +87,39 @@ tbl.rt.by.spd.pattern.coh <- tbl.rt %>%
 limits = aes( ymax = RT.mean + RT.sem, ymin = RT.mean - RT.sem, group=ParticipantID )
 
 pl.rt.bysub.pointrange <- 
-  ggplot( data=tbl.rt.by.spd.pattern.coh, aes(x=Coh, y=RT.mean, group=ParticipantID, color=as.factor(ParticipantID)) ) +
+  ggplot( data=tbl.rt.by.spd.pattern.coh, aes(x=Coh, y=RT.mean, group=ParticipantID, color=ParticipantID) ) +
   facet_grid( facets = DegPSec ~ PatternType ) +
   geom_line() +
   geom_pointrange( limits )
+
+# Tables to investigate main effects and interactions
+
+tbl.rt %>%
+  group_by( DegPSec, ParticipantID ) %>%
+  summarise( Part.mean = mean(RT, na.rm=TRUE), ct=n() ) %>%
+  group_by( DegPSec ) %>%
+  summarise( Spd.mean = mean( Part.mean ), Spd.sem=sd( Part.mean )/sqrt( n() ) )
+
+tbl.rt.patt.bysub <- tbl.rt %>%
+  group_by( PatternType, ParticipantID ) %>%
+  summarise( Part.mean = mean(RT, na.rm=TRUE), Part.sem = sd( RT )/sqrt(n()) ) %>%
+  group_by( PatternType )
+
+ggplot( data=tbl.rt.patt.bysub ) +
+  aes( x=ParticipantID, y=Part.mean, color=PatternType ) +
+  geom_point()
+
+tbl.rt.spd.bysub <- tbl.rt %>%
+  group_by( DegPSec, ParticipantID ) %>%
+  summarise( Part.mean = mean(RT, na.rm=TRUE), Part.sem = sd( RT )/sqrt(n()) ) %>%
+  group_by( DegPSec )
+
+ggplot( data=tbl.rt.spd.bysub ) +
+  aes( x=ParticipantID, y=Part.mean, color=DegPSec ) +
+  geom_point()
+
+tbl.rt %>%
+  group_by( PatternType ) %>%
+  summarise( RT.mean = mean(RT, na.rm=TRUE) )
+  
+  
