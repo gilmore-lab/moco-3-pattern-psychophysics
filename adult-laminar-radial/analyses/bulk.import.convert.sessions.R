@@ -7,7 +7,7 @@
 bulk.import.convert.sessions <- function( data.dir="../data", 
                                           desired.wd = "adult-laminar-radial/analyses",
                                           aggregate.data.dir = "../aggregate-data",
-                                          verbose=TRUE ){
+                                          verbose=FALSE ){
   # Check directory structure
   desired.wd = "adult-laminar-radial/analyses"
   current.wd = getwd()
