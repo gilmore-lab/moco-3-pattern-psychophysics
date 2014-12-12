@@ -3,6 +3,11 @@ title: "moco-adult-laminar-radial-summary"
 output: html_document
 ---
 
+```{r}
+dts=format( Sys.time(), "%Y-%m-%d-%H%M%S")
+sprintf("Analysis conducted %s.", dts)
+```
+
 ## Source functions & load packages
 ```{r}
 source("bulk.import.convert.sessions.R")
@@ -50,6 +55,10 @@ pl.p.corr <- ggplot( data=tbl.p.corr ) +
   geom_line( aes(x=Coh, y=P.Corr, group=ParticipantID, color=ParticipantID) )
 
 pl.p.corr
+
+dts=format( Sys.time(), "%Y-%m-%d-%H%M%S")
+fn=sprintf("%s/%s-%s.png", "../imgs", dts, "p.corr")
+ggsave( file=fn ) 
 ```
 
 ### Plot RT by Pattern & Speed
@@ -69,6 +78,11 @@ pl.rt <- ggplot( data=tbl.rt, aes(x=Coh, y=RT.mean, group=ParticipantID, color=P
   geom_pointrange( limits )
 
 pl.rt
+
+dts=format( Sys.time(), "%Y-%m-%d-%H%M%S")
+fn=sprintf("%s/%s-%s.png", "../imgs", dts, "rt")
+ggsave( file=fn ) 
+
 ```
 
 ### Speed/Accuracy Trade-off
@@ -83,4 +97,10 @@ pl.speed.accuracy <- ggplot( tbl.by.sub ) +
   facet_grid( facets = DegPSec ~ PatternType )
 
 pl.speed.accuracy
+
+dts=format( Sys.time(), "%Y-%m-%d-%H%M%S")
+fn=sprintf("%s/%s-%s.png", "../imgs", dts, "spd.acc")
+ggsave( file=fn ) 
 ```
+
+Note possible steeper slope for slow (2 deg/s) laminar flows. Keep on the look out for this and analyze formally later.
