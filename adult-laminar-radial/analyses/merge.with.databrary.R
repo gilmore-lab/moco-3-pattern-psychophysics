@@ -2,22 +2,26 @@
 
 out.dir <- "../aggregate-data"
 in.dir <- "~/Downloads"
-fn.sess <- "databrary-session-data.csv"
+out.fn <- "databrary-session-data.csv"
 vol <- 73
 
-# detect volume name at front and csv at the tail
-fn.patt <- paste("^", vol, ".*csv$", sep="")
+# Download spreadsheet from Databrary
+#download.file(url="https://nyu.databrary.org:8024/volume/73/csv", destfile=paste("databrary",vol,".csv",sep=""), method="curl", quiet = FALSE )
+# 201-01-15 fails because of security/SSL issues
+
+# detect databrary and volume name at front and csv at the tail
+fn.patt <- paste("^databrary", vol, ".*csv$", sep="")
 sess.fn <- list.files(path=in.dir, pattern=fn.patt)
 
-# Download file from https://nyu.databrary.org/volume/73
-file.copy( from=paste(in.dir, sess.fn, sep="/"), to=paste(out.dir, out.fn, sep="/") )
+# Copy file to project directory, force overwrite
+file.copy( from=paste(in.dir, sess.fn, sep="/"), to=paste(out.dir, out.fn, sep="/"), overwrite=TRUE )
 
 # Read data frames
 df.moco <- read.csv("../aggregate-data/adult-laminar-radial-grouped.csv")
 df.session <- read.csv( paste( out.dir, out.fn, sep="/") )
 
 # Merge data frames
-df.merge <- merge( df.moco, df.session, by.x=c("ParticipantID","SessionDate"), by.y=c("participant.ID", "session.date"))
+df.merge <- merge( df.moco, df.session, by.x=c("ParticipantID","SessionDate"), by.y=c("participant.ident", "session.date"))
 
 # Calculate age at test
 df.merge$participant.birthdate <- as.Date( df.merge$participant.birthdate )
