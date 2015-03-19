@@ -4,22 +4,23 @@
 
 # History
 # 2014-11-17 initial version
+# 2015-03-19 rogilmore modified
 
-# import session, illustrative example shown
-sess = read.csv("../data/2014-11-11-004/2014-11-11-004-combined.csv") 
+# Clear workspace to begin
+rm( list=ls() )
 
-# Create new aggregate file
-source('bulk.import.convert.sessions.R')
-bulk.import.convert.sessions()
+# Source external functions
+source("create.william.datafile.R")
+create.william.datafile()
 
-#import aggregate
-agg=read.csv("../aggregate-data/adult-laminar-radial-grouped.csv")
+# Merge Databrary and aggregate files, clean-up
+df.merge <- read.csv(file="../aggregate-data/databrary-session-data.csv")
 
 # load plotting library 
 library( ggplot2 )
 library( dplyr )
 
-df1 <- agg %>%
+df1 <- df.merge %>%
   group_by( ParticipantID, PatternType, DegPSec, Coh ) %>%
   summarise( p.corr=sum( Acc == TRUE )/n() ) 
 
@@ -41,3 +42,72 @@ sess.p.corr.df = calculate.p.corr( sess )
 
 # plot
 qplot( x=as.factor(Coh), y=Pcorr, data=sess.p.corr.df, facets = DegPSec ~ PatternType, shape=as.factor(Run) )
+
+# Print summary of RTs -- mean, sd, n, median -- by Pattern, Speed, Block..
+
+df.merge %>%
+  group_by( PatternType, DegPSec, Coh, ParticipantID ) %>%
+  summarise( mean.RT = mean( RT ),
+             sem.RT = sd(RT)/sqrt( n() ),
+             nsubs = n(),
+             median.RT = median( RT )
+)
+
+df.merge %>%
+  group_by( PatternType, Coh ) %>%
+  summarise( mean.RT = mean( RT ),
+             sem.RT = sd(RT)/sqrt( n() ),
+             nsubs = n(),
+             median.RT = median( RT )
+  )
+
+df.merge %>%
+  group_by( PatternType, ParticipantID ) %>%
+  summarise( mean.RT = mean( RT ),
+             sd.RT = sd(RT),
+             n = n(),
+             median.RT = median( RT )
+  ) 
+
+
+# Print summary of Pct Corr -- 
+
+df1 %>%
+  group_by( PatternType, ParticipantID ) %>%
+  summarise( mean.p.corr = mean( p.corr ),
+             sd.p.corr = sd(p.corr),
+             n = n(),
+             median.p.corr = median( p.corr )
+  ) 
+
+df1 %>%
+  group_by( DegPSec, ParticipantID ) %>%
+  summarise( mean.p.corr = mean( p.corr ),
+             sd.p.corr = sd(p.corr),
+             n = n(),
+             median.p.corr = median( p.corr )
+  ) 
+
+# ANOVA on RT
+
+aov.rt <- aov( formula=RT ~ DegPSec*PatternType*Coh + Error(ParticipantID), data = df.merge )
+summary( aov.rt )
+df.merge %>%
+  group_by( PatternType, Coh ) %>%
+  summarise( mean.RT = mean( RT ),
+             sd.RT = sd(RT),
+             n = n(),
+             median.RT = median( RT )
+  ) 
+
+aov.p.corr <- aov( formula=p.corr ~ DegPSec*PatternType*Coh + Error(ParticipantID), data = df1 )
+summary( aov.p.corr )
+df1 %>%
+  group_by( PatternType, Coh ) %>%
+  summarise( mean.p.corr = mean( p.corr ),
+             sd.p.corr = sd(p.corr),
+             n = n(),
+             median.p.corr = median( p.corr )
+  ) 
+
+
