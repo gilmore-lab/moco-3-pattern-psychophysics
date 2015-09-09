@@ -7,8 +7,6 @@ params:
   local_data: FALSE
 ---
 
-## Set up environment, load libraries, source scripts, load data
-
 ```{r set-directories, echo=FALSE, include=FALSE}
 dir_analysis <- 'analysis'
 dir_img <- paste(dir_analysis, 'img/', sep='/')
@@ -59,7 +57,10 @@ df.bysub <- df.merge %>%
              rt.sd=sd(RT))
 ```
 
-```{r plot-pcorr-rt, include=TRUE}
+```{r plot-pcorr, include=TRUE}
 plot.moco.psychophys(df = df.bysub, resp_var = 'p.corr', show_title = TRUE)
+```
+
+```{r plot-rt, include=TRUE}
 plot.moco.psychophys(df = df.bysub, resp_var = 'rt', show_title = TRUE)
 ```
