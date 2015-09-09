@@ -9,11 +9,14 @@ params:
 
 ## Set up environment, load libraries, source scripts, load data
 
-```{r knitr-options, echo = FALSE, include = FALSE}
-knitr::opts_chunk$set(comment=NA, echo=FALSE, error=FALSE, warnings=FALSE, message=FALSE, include=FALSE)
-
+```{r set-directories, echo=FALSE, include=FALSE}
 dir_analysis <- 'analysis'
+dir_img <- paste(dir_analysis, 'img', sep='/')
 dir_data <- paste(dir_analysis, 'data', sep='/')
+```
+
+```{r knitr-options, echo = FALSE, include = FALSE}
+knitr::opts_chunk$set(comment = NA, echo = FALSE, error = FALSE, warnings = FALSE, message = FALSE, include = FALSE, fig.path = dir_img)
 ```
 
 ```{r load-packages}
