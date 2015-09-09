@@ -1,0 +1,54 @@
+---
+title: "adamiak-etal-2015"
+author: "Rick O. Gilmore"
+date: "`r Sys.time()`"
+output: html_document
+params:
+  local_data: TRUE
+---
+
+## Set up environment, load libraries, source scripts, load data
+
+```{r knitr-options, echo = FALSE, include = FALSE}
+knitr::opts_chunk$set(comment=NA, echo=FALSE, error=FALSE, warnings=FALSE, message=FALSE, include=FALSE)
+
+dir_analysis <- 'analysis'
+dir_data <- paste(dir_analysis, 'data', sep='/')
+```
+
+```{r load-packages}
+library(ggplot2)
+library(dplyr)
+library(lme4)
+library(psyphy)
+```
+
+```{r source-functions}
+source('analysis/plot.moco.psychophys.R')
+```
+
+```{r load-data}
+if (params$local_data){
+  fn_data <- paste(dir_data, 'adult-laminar-radial-grouped.csv', sep='/')
+}
+df.merge <- read.csv(file = fn_data)
+```
+
+## Plots by participant with group level smoother
+
+```{r create-corr-incorr-table, echo = TRUE, include = TRUE}
+# Summary data table at participant level
+df.bysub <- df.merge %>%
+  group_by( SpeedOrder, ParticipantID, PatternType, DegPSec, Coh ) %>%
+  filter( !( ParticipantID == 14 ) )  %>%  
+  summarise( corr=sum( Acc == TRUE ),
+             incorr=sum( Acc == FALSE),
+             nsamples=n(),
+             rt.mean=mean(RT),
+             rt.sd=sd(RT))
+```
+
+```{r plot-pcorr-rt, include=TRUE}
+plot.moco.psychophys(df = df.bysub, resp_var = 'p.corr', show_title = TRUE)
+plot.moco.psychophys(df = df.bysub, resp_var = 'rt', show_title = TRUE)
+```
