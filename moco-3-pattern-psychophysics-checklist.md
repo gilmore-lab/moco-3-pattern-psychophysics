@@ -1,8 +1,12 @@
 # MOCO 3 Pattern Psychophysics Checklist
 
 Authors: William Adamiak & Rick O. Gilmore (rick.o.gilmore@gmail.com)
-
 Date: 2015-04-24
+
+Updated by: Andrea Seisler 2015-12-07   
+-no images present in file
+
+
 
 ## Startup
 
@@ -65,8 +69,9 @@ continue.
 will show. Here participant presses spacebar to begin the trial.
 
 5. The dots are displayed and participants respond with key presses (Z
-for left image, ? for right image) \*the Matlab command window keeps
-track of key presses. Participants have 10 sec to respond
+for left image, ?/ for right image)  
+*The Matlab command window keeps
+track of key presses. Participants have 10 sec to respond.
 
 6. Repeat steps 3-5 for every trial.
 
