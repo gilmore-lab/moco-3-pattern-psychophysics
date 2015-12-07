@@ -37,12 +37,15 @@ Updated by: Andrea Seisler 2015-12-07
 
 ![](img/prepare-stimuli-output.png)
 
+- The resulting file is created in the folder: /Users/admin_rickgilmore/Documents/MATLAB/src/local/exec/RDK/exp/YYYYMMDD_HHMM/obj.mat
+
 ## New run
 
 - During ‘newrun’, one iteration of dots is created and the display sequence begins immediately after.
 - As such, testing date and time will be requested upon script execution.
 - See below for presentation format.
 - This is useful for seeing the effects of particular parameters.
+- The resulting file is created in the folder: /Users/admin_rickgilmore/Documents/MATLAB/src/local/exec/RDK/exp/YYYYMMDD_HHMM/obj.mat
 
 ## Old load
 
@@ -65,7 +68,7 @@ Updated by: Andrea Seisler 2015-12-07
 3. A blank screen will show. Here participant presses spacebar to
 continue.
 
-4. Next a fixation screen with a white dot in the center of the screen
+4. Next a fixation screen with a white dot in the centeeer of the screen
 will show. Here participant presses spacebar to begin the trial.
 
 5. The dots are displayed and participants respond with key presses (Z
