@@ -3,20 +3,17 @@
 Authors: William Adamiak & Rick O. Gilmore (rick.o.gilmore@gmail.com)
 Date: 2015-04-24
 
-Updated by: Andrea Seisler 2015-12-07   
--no images present in file
+Updated:  
+Andrea Seisler 2015-12-07 Add instructions  
+Andrea Seisler 2015-12-15 Add Images
 
 
 
 ## Startup
 
--   Open **Matlab R2010aSV** (if Matlab error shows up, dismiss)
-    
-    ![](img/desktop.png)
-
--   Go to current working directory (~/Documents/MATLAB/GitHub/RDK)
-
-![](img/path-to-matlab-script.png)
+-  Use Mac in room 449A Moore-  Log in to Admin Rick Gilmore account with password imac1234%-  Make sure connected to psu Wifi-  Open MATLAB by clicking on the logo on bottom toolbar (**Matlab_R2013b**)  
+![Matlab icon](imgs/Matlab-icon.png)-  Enter command: rdkMain(‘oldload’)  The following should come up:![Select File to Load](imgs/Choose-file.jpg)  
+-  Navigate to:![Select File to Load](imgs/Choose-file2.jpg)
 
 -   To change parameters: select an obj.mat file from a participant folder in the exp folder (see below).
 
@@ -35,7 +32,8 @@ Updated by: Andrea Seisler 2015-12-07
 - Prior to each iteration of dot generation, RDK will request a new testing date/time for that dot set.
 - Note that this option does not present dots in any way. It simply “prepares” dots for future use. The files generated are Matlab data structures containing (among other items) bitmaps of the two dot display regions for each frame in the movie.
 
-![](img/prepare-stimuli-output.png)
+![Prepare Stimuli](imgs/rdkmain-prepare.png)
+
 
 ## New run
 
@@ -44,52 +42,62 @@ Updated by: Andrea Seisler 2015-12-07
 - See below for presentation format.
 - This is useful for seeing the effects of particular parameters.
 
+![Create New Run](imgs/rdkmain-newrun.png)
+
+
 ## Old load
 
-- For rdkMain(‘oldload’), select an **obj.mat** file within the ./exp/previous\_participant\_folder.
+- For rdkMain(‘oldload’), select an **obj.mat** file within the ./exp/generated_study_folder.
 
 - The ‘oldload’ option ignores dot generation entirely, and assumes that a dot set has already been pre-generated (obj.mat).
 
 - As such, ‘oldload’ will start dot presentation as soon as an obj.mat is selected.
 
-![](img/load-old-stimuli.png)
+Enter command: rdkMain(‘oldload’)  The following should come up:
 
-![](img/select-file-to-load.png)
+![Open File](imgs/Choose-file.jpg)  
+
+Navigate to:
+
+![Navigate To obj.mat](imgs/Choose-file2.jpg)
 
 ## Presentation format
 
-1. Participant will see welcome screen.
-
-2. Next PsychToolbox screen will show briefly.
-
-3. A blank screen will show. Here participant presses spacebar to
-continue.
-
-4. Next a fixation screen with a white dot in the center of the screen
-will show. Here participant presses spacebar to begin the trial.
-
-5. The dots are displayed and participants respond with key presses (Z
-for left image, ?/ for right image)  
-*The Matlab command window keeps
-track of key presses. Participants have 10 sec to respond.
-
-6. Repeat steps 3-5 for every trial.
+- Participants should be seated 60 cm from the monitor- Participant Instructions:   
+    - Fixate on the dot in the center of the display and to use your peripheral vision to determine which of the displays exhibits an optic flow pattern.
+    - There is a 10 second response time limit
+    - We will take a break half way through the study.
+1. Participant will see welcome screen
+2. Next PsychToolbox screen will show briefly
+3. A blank screen will appear
+4. Press space bar to begin
+5. Press space bar again to bring up fixation point
+6. Press space bar once more to bring up side-by-side circular dot displays
+7. Choose which display is exhibiting motion coherence by pressing the ‘z’ for left or the ‘?/’ key for the right
+8. Repeat steps 4-7 until the program ends
 
 ![](img/sample-display.png)
 
 ## End of session
 
-![](img/output-file-path.png)
 
-- After experiment is complete, an out.csv is created in the subject’s folder.
+- After experiment is complete, an YYYY-MM-DD-HH-MM-SS.csv is created in the Experimental Condition folder.
 
-- Select the out.csv file to view participant performance (Ctrl+Click \>\> Select *Open Outside Matlab*)
+![Output File](imgs/output-file-path.jpg)
 
-- Rename this file with participant ID and session date information.
 
-![](img/output-file-view.png)
+- Select the YYYY-MM_DD-HH-MM-SS.csv file to view participant performance (Ctrl+Click \>\> Select *Open Outside Matlab*)
+
+- Rename this file with participant ID and session date information (e.g. YYMMDDSSSS).
+
+Adult Sessions
 
 - Session files are stored on ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/adult-laminar-radial/data in a directory with the session test date and a 3 digit participant number (YY-MM-DD-SSS).
+
+Child Sessions
+
+- Session files are stored on ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/child-laminar-radial/data in a directory with the session test date and a 4 digit participant number (YY-MM-DD-SSSS).
+
 
 ## Data merging, cleaning with RStudio
 
@@ -106,12 +114,19 @@ track of key presses. Participants have 10 sec to respond.
 
 -   To view previous experimental parameters, select an obj.mat within a subject folder in the exp/ directory.
 
+- Experiment .m files located at: /Users/admin_rickgilmore/Documents/MATLAB/src/local/exec/RDK
+
 - To manipulate experimental parameters prior to dot generation, open the **ObjSet.m**, and adjust the values below.
 
+![Define Experimental Parameters](imgs/ObjSet-define-parameters.png)  
+ 
 - Highlighted are the parameters that are flexible to change (except exp.fr).
+
+- To manipulate the input keys for responses, open the **rdkMain.m**
+
+![Define input keys](imgs/rdkMain-define-keys.png)  
 
 - Always verify changes with those with experience before saving.
 
-![](img/manipulate-experimental-parameters.png)
 
-![](img/manipulate-experimental-parameters-2.png)
+
