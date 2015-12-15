@@ -76,7 +76,7 @@ Navigate to:
 7. Choose which display is exhibiting motion coherence by pressing the ‘z’ for left or the ‘?/’ key for the right
 8. Repeat steps 4-7 until the program ends
 
-![](img/sample-display.png)
+![Moco Psychophysics Sample Display](imgs/sample-display-small.jpg)
 
 ## End of session
 
