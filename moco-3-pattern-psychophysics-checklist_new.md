@@ -35,12 +35,15 @@ Andrea Seisler 2015-12-15 Add Images
 ![Prepare Stimuli](imgs/rdkmain-prepare.png)
 
 
+- The resulting file is created in the folder: /Users/admin_rickgilmore/Documents/MATLAB/src/local/exec/RDK/exp/YYYYMMDD_HHMM/obj.mat
+
 ## New run
 
 - During ‘newrun’, one iteration of dots is created and the display sequence begins immediately after.
 - As such, testing date and time will be requested upon script execution.
 - See below for presentation format.
 - This is useful for seeing the effects of particular parameters.
+- The resulting file is created in the folder: /Users/admin_rickgilmore/Documents/MATLAB/src/local/exec/RDK/exp/YYYYMMDD_HHMM/obj.mat
 
 ![Create New Run](imgs/rdkmain-newrun.png)
 
@@ -80,6 +83,11 @@ Navigate to:
 
 ## End of session
 
+<<<<<<< HEAD
+=======
+4. Next a fixation screen with a white dot in the centeeer of the screen
+will show. Here participant presses spacebar to begin the trial.
+>>>>>>> 898b66b18b09b98368a93472540dae801bba4d4f
 
 - After experiment is complete, an YYYY-MM-DD-HH-MM-SS.csv is created in the Experimental Condition folder.
 
@@ -129,4 +137,8 @@ Child Sessions
 - Always verify changes with those with experience before saving.
 
 
+<<<<<<< HEAD
 
+=======
+![](img/manipulate-experimental-parameters-2.png)
+>>>>>>> 898b66b18b09b98368a93472540dae801bba4d4f
