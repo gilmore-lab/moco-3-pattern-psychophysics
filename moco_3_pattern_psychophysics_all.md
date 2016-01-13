@@ -128,16 +128,17 @@ Child Sessions
 -   To view previous experimental parameters, select an obj.mat within a subject folder in the exp/ directory.
 
 - Experiment .m files located at: /Users/admin_rickgilmore/Documents/MATLAB/src/local/exec/RDK
+  - rdkMain.m, ObjSet.m, inputDevice.m 
 
 - To manipulate experimental parameters prior to dot generation, open the **ObjSet.m**, and adjust the values below.
 
-![Define Experimental Parameters](imgs/ObjSet-define-parameters.png)  
+  ![Define Experimental Parameters](imgs/ObjSet-define-parameters.png)  
  
 - Highlighted are the parameters that are flexible to change (except exp.fr).
 
 - To manipulate the input keys for responses, open the **inputDevice.m**
 
-![Define input keys](imgs/inputDevice-define-keys.png)  
+  ![Define input keys](imgs/inputDevice-define-keys.png)  
 
 - Always verify changes with those with experience before saving.
 
