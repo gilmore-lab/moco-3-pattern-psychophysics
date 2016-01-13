@@ -64,6 +64,8 @@ Navigate to:
 
 ![Navigate To obj.mat](imgs/Choose-file2.jpg)
 
+Choose which input device will be used for the experiment.  
+
 ## Presentation format
 
 - Participants should be seated 60 cm from the monitor- Participant Instructions:   
@@ -73,21 +75,24 @@ Navigate to:
 1. Participant will see welcome screen
 2. Next PsychToolbox screen will show briefly
 3. A blank screen will appear
-4. Press space bar to begin
-5. Press space bar again to bring up fixation point
-6. Press space bar once more to bring up side-by-side circular dot displays
-7. Choose which display is exhibiting motion coherence by pressing the ‘z’ for left or the ‘?/’ key for the right
+4. Press **spkey** to begin
+5. Press **spkey** again to bring up fixation point
+6. Press **spkey** once more to bring up side-by-side circular dot displays
+7. Choose which display is exhibiting motion coherence by pressing the **lkey** for the left or the **rkey** key for the right
 8. Repeat steps 4-7 until the program ends
 
 ![Moco Psychophysics Sample Display](imgs/sample-display-small.jpg)
 
-## End of session
+## Response Keys
+|code name| keyboard    | USB 12 button gamepad| Description            | 
+|---------|-------------|----------------------|------------------------| 
+| spkey   | space bar   | 6 button             |Progress to next screen |  
+| esckey  | esc         | 4 button             |Abort display sequence  |  
+| pkey    | P           | 5 button             |Go to previous trial    | 
+| lkey    | Z           | Left Front 2 button  |Left Response           |
+| rkey    | ?/          | Right Front 2 button |Right Response          |
 
-<<<<<<< HEAD
-=======
-4. Next a fixation screen with a white dot in the centeeer of the screen
-will show. Here participant presses spacebar to begin the trial.
->>>>>>> 898b66b18b09b98368a93472540dae801bba4d4f
+## End of session
 
 - After experiment is complete, an YYYY-MM-DD-HH-MM-SS.csv is created in the Experimental Condition folder.
 
@@ -130,15 +135,12 @@ Child Sessions
  
 - Highlighted are the parameters that are flexible to change (except exp.fr).
 
-- To manipulate the input keys for responses, open the **rdkMain.m**
+- To manipulate the input keys for responses, open the **inputDevice.m**
 
-![Define input keys](imgs/rdkMain-define-keys.png)  
+![Define input keys](imgs/inputDevice-define-keys.png)  
 
 - Always verify changes with those with experience before saving.
 
 
-<<<<<<< HEAD
 
-=======
-![](img/manipulate-experimental-parameters-2.png)
->>>>>>> 898b66b18b09b98368a93472540dae801bba4d4f
+
