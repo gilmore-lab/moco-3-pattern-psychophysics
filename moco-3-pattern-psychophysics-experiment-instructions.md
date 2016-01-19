@@ -7,12 +7,13 @@ Updated: 2016-01-13 -include instructions for use of USB gamepad
   ![Matlab icon](imgs/Matlab-icon.png)  5. Enter command: rdkMain(‘oldload’)     The following should come up:     ![Select File to Load](imgs/Choose-file.jpg)  
 6. Navigate to:    ![Select File to Load](imgs/Choose-file2.jpg)  7. Open src->local->exec->RDK->exp->  
 
-    - 20150706_1045 > obj.mat  
-      - velocity = 8 deg/s  
+    - child_2deg/s_output > obj-2degPs-child.mat         - velocity = 2 deg/s  
       - coherence = [.2,.4,.6,.8]  
-          - 20150706_1115 > obj.mat        - velocity = 2 deg/s  
-      - coherence = [.2,.4,.6,.8]  
-      
+          
+    - child_8deg/s_output > obj-8degPs-child.mat  
+      - velocity = 8 deg/s    
+      - coherence = [.2,.4,.6,.8]   
+         
       8. Choose which input device will be used for the experiment  
 9. Participants should be seated 60 cm from the monitor10. Participant Instructions:   
     - Fixate on the dot in the center of the display and to use your peripheral vision to determine which of the displays exhibits an optic flow pattern.
@@ -21,22 +22,33 @@ Updated: 2016-01-13 -include instructions for use of USB gamepad
 11. Participant will see welcome screen
 12. Next PsychToolbox screen will show briefly
 13. A blank screen will appear
-14. Press spkey to begin
-15. Press spkey again to bring up fixation point
-16. Press spkey once more to bring up side-by-side circular dot displays
-17. Choose which display is exhibiting motion coherence by pressing the lkey for the left and rkey for the right
+14. Press **spkey** to begin
+15. Press **spkey** again to bring up fixation point
+16. Press **spkey** once more to bring up side-by-side circular dot displays
+17. Choose which display is exhibiting motion coherence by pressing the **lkey** for the left and **rkey** for the right
 18. Repeat steps 15-17 until the program ends
 ### Notes
 #### How many Blocks do I run?  
-- 1 run = 5 blocks of 16 trials  - Randomize Blocks  Adults: 2 runs of each type    
+- 1 run = 5 blocks of 16 trials  - Randomize Blocks - each participant completes one of the presentation patterns below.  
 
-- 2 deg/sec [.05,.10,.15,.20]  
-- 8 deg/sec [.05,.10,.15,.20]  
+	- 2 8 2 8  
+	- 2 8 8 2  
+	- 8 2 8 2  
+	- 2 2 8 8  
+	- 8 8 2 2  
+	- 8 2 2 8  
+		Adults: 2 runs of each type    
+
+- 2 deg/s output-adult > obj_2degPSec.mat: 2 deg/sec [.05,.10,.15,.20]  
+- 8 deg/s output-adult > obj_8degPSec.mat: 8 deg/sec [.05,.10,.15,.20]  
 
 Children: 2 runs of each type  
 
-- 20150706_1115 > obj.mat: 2 deg/sec [.2,.4,.6,.8]  
-- 20150706_1045 > obj.mat: 8 deg/sec [.2,.4,.6,.8]  
+- child_2deg/s_output > obj-2degPs-child.mat: 2 deg/sec [.2,.4,.6,.8]  
+- child_8deg/s_output > obj-8degPs-child.mat: 8 deg/sec [.2,.4,.6,.8]  
+
+4 Runs Total
+
 
 #### Response Keys
 |code name| keyboard    | USB 12 button gamepad| Description            | 
@@ -46,4 +58,31 @@ Children: 2 runs of each type
 | pkey    | P           | 5 button             |Go to previous trial    | 
 | lkey    | Z           | Left Front 2 button  |Left Response           |
 | rkey    | ?/          | Right Front 2 button |Right Response          |
-## Protocol for Retrieving Session Data  1.	Open Excel  2.	Open src->local->exec->RDK->exp->20140922_0403  3.	Enable “All Files” at bottom  4.	Open ‘out.csv’  
+## End of session
+
+- After experiment is complete, an YYYY-MM-DD-HH-MM-SS.csv is created in the Experimental Condition folder.
+
+![Output File](imgs/output-file-path.jpg)
+
+
+- Select the YYYY-MM_DD-HH-MM-SS.csv file to view participant performance (Ctrl+Click \>\> Select *Open Outside Matlab*)
+
+- Rename this file with session date and participant ID information (e.g. YYMMDDSSSS.csv).
+
+Adult Sessions
+
+- Session files are stored on ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/adult-laminar-radial/data in a directory with the session test date and a 3 digit participant number (YY-MM-DD-SSS.csv).
+
+Child Sessions
+
+- Session files are stored on ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/child-laminar-radial/data in a directory with the session test date and a 4 digit participant number (YYMMDDSSSS.csv).
+## Data merging, cleaning with RStudio
+
+- An [RStudio](http://www.rstudio.com/) project is located in ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/adult-laminar-radial/analysis
+- Open RStudio, then navigate to this directory and open the *analyses.Rproj* file or select this project from the menu.
+- The *william.R* script can be run. It creates and cleans a merged data file, exports new .csv files to subject directories, conducts statistical analyses, and creates several useful plots.
+
+## Uploading data to Databrary
+
+- The data for this project are shared with Databrary under <http://databrary.org/volume/73>
+- ## Protocol for Retrieving Session Data  1.	Open Excel  2.	Open src->local->exec->RDK->exp->20140922_0403  3.	Enable “All Files” at bottom  4.	Open ‘out.csv’  
