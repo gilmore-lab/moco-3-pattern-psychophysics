@@ -1,8 +1,8 @@
 # Protocol for Running MOCO Psychophysics Experiment
 
-Author: Andrea Seisler
-Created: 2015-09-25
-Updated: 2016-01-13 -include instructions for use of USB gamepad
+Author: Andrea Seisler  
+Created: 2015-09-25  
+Updated: 2016-01-13 -include instructions for use of USB gamepad  
 1. Use Mac in room 449A Moore2. Log in to Admin Rick Gilmore account with password imac1234%3. Make sure connected to psu Wifi4. Open MATLAB by clicking on the logo on bottom toolbar (**Matlab_R2013b**)  
   ![Matlab icon](imgs/Matlab-icon.png)  5. Enter command: rdkMain(‘oldload’)     The following should come up:     ![Select File to Load](imgs/Choose-file.jpg)  
 6. Navigate to:    ![Select File to Load](imgs/Choose-file2.jpg)  7. Open src->local->exec->RDK->exp->  
