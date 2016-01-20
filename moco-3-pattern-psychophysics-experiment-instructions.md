@@ -67,15 +67,15 @@ Children: 2 runs of each type
 
 - Select the YYYY-MM_DD-HH-MM-SS.csv file to view participant performance (Ctrl+Click \>\> Select *Open Outside Matlab*)
 
-- Rename this file with session date and participant ID information (e.g. YYMMDDSSSS.csv).
+- Rename this file with session date, participant ID, velocity (2 or 8), and run number information (1-4) (e.g. YYMMDDSSSS-2deg1.csv). This should be renamed before the next run starts. There will be 4 files total for each participant.
 
 Adult Sessions
 
-- Session files are stored on ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/adult-laminar-radial/data in a directory with the session test date and a 3 digit participant number (YY-MM-DD-SSS.csv).
+- Session files are stored on ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/adult-laminar-radial/data in a directory with the session test date and a 3 digit participant number (YY-MM-DD-SSS).
 
 Child Sessions
 
-- Session files are stored on ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/child-laminar-radial/data in a directory with the session test date and a 4 digit participant number (YYMMDDSSSS.csv).
+- Session files are stored on ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/child-laminar-radial/data in a directory with the session test date and a 4 digit participant number (YYMMDDSSSS).
 ## Data merging, cleaning with RStudio
 
 - An [RStudio](http://www.rstudio.com/) project is located in ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/adult-laminar-radial/analysis
@@ -85,4 +85,4 @@ Child Sessions
 ## Uploading data to Databrary
 
 - The data for this project are shared with Databrary under <http://databrary.org/volume/73>
-- ## Protocol for Retrieving Session Data  1.	Open Excel  2.	Open src->local->exec->RDK->exp->20140922_0403  3.	Enable “All Files” at bottom  4.	Open ‘out.csv’  
+## Protocol for Retrieving Session Data  1.	Open Excel  2.	Open src->local->exec->RDK->exp->20140922_0403  3.	Enable “All Files” at bottom  4.	Open ‘out.csv’  

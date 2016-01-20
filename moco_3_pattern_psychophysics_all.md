@@ -92,6 +92,7 @@ Choose which input device will be used for the experiment.
 | lkey    | Z           | Left Front 2 button  |Left Response           |
 | rkey    | ?/          | Right Front 2 button |Right Response          |
 
+
 ## End of session
 
 - After experiment is complete, an YYYY-MM-DD-HH-MM-SS.csv is created in the Experimental Condition folder.
@@ -101,16 +102,15 @@ Choose which input device will be used for the experiment.
 
 - Select the YYYY-MM_DD-HH-MM-SS.csv file to view participant performance (Ctrl+Click \>\> Select *Open Outside Matlab*)
 
-- Rename this file with participant ID and session date information (e.g. YYMMDDSSSS.csv).
+- Rename this file with session date, participant ID, velocity (2 or 8), and run number information (1-4) (e.g. YYMMDDSSSS-2deg1.csv). This should be renamed before the next run starts. There will be 4 files total for each participant.
 
 Adult Sessions
 
-- Session files are stored on ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/adult-laminar-radial/data in a directory with the session test date and a 3 digit participant number (YY-MM-DD-SSS.csv).
+- Session files are stored on ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/adult-laminar-radial/data in a directory with the session test date and a 3 digit participant number (YY-MM-DD-SSS).
 
 Child Sessions
 
-- Session files are copied and stored on ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/child-laminar-radial/data in a directory with the session test date and a 4 digit participant number (YYMMDDSSSS.csv).
-
+- Session files are stored on ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/child-laminar-radial/data in a directory with the session test date and a 4 digit participant number (YYMMDDSSSS).
 
 ## Data merging, cleaning with RStudio
 
