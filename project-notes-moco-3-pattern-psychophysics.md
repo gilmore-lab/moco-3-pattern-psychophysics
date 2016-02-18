@@ -21,8 +21,8 @@ This is the project notes file for the moco-3-pattern-psychophysics project.
    - set up camera (Rick will get the Go Pro to the lab) - determine camera angle  
    - acquire light for in the room that has a dimmer  
    - maybe have young participants point to the screen and have the experimenter press the button  
-- Write procedure for setting up camera.  
-- Write instructions for utilizing having the participant point instead of using the keyboard/game controller. This should be part of the existing protocol [Protocol](gilmore-lab/moco-3-pattern-psychophysics/xxx.md)   
+- Write procedure for setting up camera. Create new protocol. 
+- Write instructions for utilizing having the participant point instead of using the keyboard/game controller. This should be part of the existing protocol [moco-3-pattern-psychophysics-experiment-instructions](gilmore-lab/moco-3-pattern-psychophysics/moco-3-pattern-psychophysics-experiment-instructions.md)   
   	
 ## 2016-02-18-10:00
 - ars17 limited the allowable of key responses to the defined esckey, pkey, lkey, rkey, and spkey. This works for the keyboard and the game controller
