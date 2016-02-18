@@ -8,10 +8,34 @@ This is the project notes file for the moco-3-pattern-psychophysics project.
 
 ## To Do
 - Set up USB controller to work with study - DONE
-  - code uses KbName which only works with the keyboard
+  - code uses KbName which only works with the keyboard - uses PsychHID to make work with multiple input devices - Updated
   - write new script to detect responses
   
 - Pilot on kids
+
+
+## 2016-02-18-12:45
+- Meeting: Rick, Andrea, Raya, Shivani, Karina  
+- Reviewed changes to code  
+- Discussed piloting study  
+   - set up camera - determine camera angle  
+   - acquire light for in the room that has a dimmer  
+   - maybe have young participants point to the screen and have the experimenter press the button  
+- Write procedure for setting up camera.  
+- Write instructions for utilizing the keyboard/game controller and pointing.   
+  	
+## 2016-02-18-10:00
+- ars17 limited the allowable of key responses to the defined esckey, pkey, lkey, rkey, and spkey. This works for the keyboard and the game controller
+	- issues - the spkey works during the dot display and it pressed logs a '0' 
+- fixed the exiting out of the block/trial loop so the end of the study does not sound like an error.
+
+## 2016-01-27-16:00
+- pilot study 7 yo M
+
+- Accept any key input response
+- Script froze - no output .csv files were generated
+- problems keeping fingers on the correct buttons
+- more light needed
 
 ## 2016-01-20-09:00
 - Completed updating instructions to include filenaming conventions and updating images 
