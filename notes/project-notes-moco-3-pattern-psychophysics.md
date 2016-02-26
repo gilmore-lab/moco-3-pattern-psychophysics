@@ -13,7 +13,24 @@ This is the project notes file for the moco-3-pattern-psychophysics project.
   
 - Pilot on kids
 
+## 2016-02-26-13:45
+- Set up go pro camera with light under table and ipad
+- Take video to see how long a new battery lasts
+- Write procedure for setting up cammera (go_pro_instructions.md)<
+- Write participant instructions including instructions on how to use each input method
+## 2016-02-25-13:05
+- Set up go pro camera with ipad to look for best view
 
+### To Do
+- Write procedure for setting up camera.  
+- Write instructions for utilizing the keyboard/game controller and pointing. 
+- Work on code to:  
+   - use keyboard for 'p' and 'esc' when the game controller is being used.
+   - have different keys work for different parts of the stimuli:
+      - dot display: Lkey, Rkey, esckey, Pkey
+      - blank screen: spkey, esckey
+      - fixation dot: spkey, esckey
+   
 ## 2016-02-18-12:45
 - Meeting: Rick, Andrea, Raya, Shivani, Karina  
 - Reviewed changes to code  
