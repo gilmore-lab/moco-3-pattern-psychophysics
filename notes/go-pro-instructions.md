@@ -28,6 +28,6 @@
 - having the iPad preview screen on during video collection recudes battery life
 
 ## Testing
-- Recording, WiFi on, Preview on - Battery lasted ~ XX min
+- Recording, WiFi on, Preview on - Battery lasted ~ 1:05 min
 - Recording, WiFi on, Preview off - Battery lasted ~ XX min
 - Recording, WiFi off - Battery lasted ~ XX min

@@ -7,7 +7,7 @@ This is the project notes file for the moco-3-pattern-psychophysics project.
 - compare child with previously collected adult data
 
 ## To Do
-- Set up USB controller to work with study - DONE
+- Set up USB controller to work with study - Partially DONE
   - code uses KbName which only works with the keyboard - uses PsychHID to make work with multiple input devices - Updated
   - write new script to detect responses
   
@@ -16,8 +16,13 @@ This is the project notes file for the moco-3-pattern-psychophysics project.
 ## 2016-02-26-13:45
 - Set up go pro camera with light under table and ipad
 - Take video to see how long a new battery lasts
-- Write procedure for setting up cammera (go_pro_instructions.md)<
-- Write participant instructions including instructions on how to use each input method
+- Write procedure for setting up camera [GoPro instructions](notes/go-pro-instructions.md)
+- Write participant instructions including instructions on how to use each input method [Participant Instructions](notes/moco-3pat-psychophysics-participant-instructions.md)
+
+### To Do
+- Review written procedures
+
+
 ## 2016-02-25-13:05
 - Set up go pro camera with ipad to look for best view
 
