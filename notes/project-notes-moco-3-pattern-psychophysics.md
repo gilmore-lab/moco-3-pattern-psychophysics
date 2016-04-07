@@ -13,6 +13,7 @@ This is the project notes file for the moco-3-pattern-psychophysics project.
   
 - Pilot on kids
 
+
 ## 2016-03-15-10:00
 - pilot 4yo participant numbr 1048
   - participant verbalized or pointed to the chosen answer
@@ -33,10 +34,24 @@ This is the project notes file for the moco-3-pattern-psychophysics project.
    - videos too dark - next time do not use black cloth around the table
    
 
+## 2016-04-06
+-Databrary volume created [moco-2pat-child-psychophysics](https://nyu.databrary.org/volume/218)
+-videos and .csv files still need to be uploaded to Databrary
+
+-linspace(.1, .6, 4) = .1000, .2667, .4333, .6000
+
+## 2016-03-31
+- meeting - plotted first dataset
+- To Do:
+  - create databrary volume
+  - figure out 4 points between .1 and .6 using even spacing (linspace in matlab) and on the log scale
+  - work on automating code
+
+
 ## 2016-02-26-13:45
 - Set up go pro camera with light under table and ipad
 - Take video to see how long a new battery lasts
-- Write procedure for setting up camera [GoPro instructions](notes/go-pro-instructions.md)
+ Write procedure for setting up camera [GoPro instructions](notes/go-pro-instructions.md)
 - Write participant instructions including instructions on how to use each input method [Participant Instructions](notes/moco-3pat-psychophysics-participant-instructions.md)
 
 ### To Do
