@@ -3,7 +3,7 @@
 This is the project notes file for the moco-3-pattern-psychophysics project.
 
 ## Goal
-- collect data from XX children 4-8 yrs old.
+- collect data from 25 children 4-8 yrs old.
 - compare child with previously collected adult data
 
 ## To Do
@@ -13,7 +13,27 @@ This is the project notes file for the moco-3-pattern-psychophysics project.
   
 - Pilot on kids
 
+## 2015-04-07-10:47
+- Shivani and Raya have been tasked with figuring out 4 points between .1 and .6 using log spacing.
 
+## 2016-04-06
+- Databrary volume created [moco-2pat-child-psychophysics](https://nyu.databrary.org/volume/218)
+- videos and .csv files still need to be uploaded to Databrary
+
+- linspace(.1, .6, 4) = .1000, .2667, .4333, .6000
+
+## 2016-04-02
+- collect data from participants 1059 (5yo) and 1060 (6yo).
+- had participants point and ARS entered the answers.
+- The dot display is too light to be seen on the camera. Only the fixation point may be seen.
+
+## 2016-03-31
+- meeting - plotted first dataset
+- To Do:
+  - create databrary volume
+  - figure out 4 points between .1 and .6 using even spacing (linspace in matlab) and on the log scale
+  - work on automating code
+  
 ## 2016-03-15-10:00
 - pilot 4yo participant numbr 1048
   - participant verbalized or pointed to the chosen answer
@@ -25,6 +45,8 @@ This is the project notes file for the moco-3-pattern-psychophysics project.
   - Only the fixation dot could be seen on the monitor.
   - brighter video, but add additional light next time. 
   - blocks took ~ 20 min each - battery was changed after each block
+- Very difficulty to test 4yo. Very fidgety, can't sit still, study not interesting enough.
+  
   
   
 ## 2016-03-14-17:00
@@ -32,22 +54,7 @@ This is the project notes file for the moco-3-pattern-psychophysics project.
    - participant used game controller
    - 4 blocks 2,8,2,8 
    - videos too dark - next time do not use black cloth around the table
-   
-
-## 2016-04-06
--Databrary volume created [moco-2pat-child-psychophysics](https://nyu.databrary.org/volume/218)
--videos and .csv files still need to be uploaded to Databrary
-
--linspace(.1, .6, 4) = .1000, .2667, .4333, .6000
-
-## 2016-03-31
-- meeting - plotted first dataset
-- To Do:
-  - create databrary volume
-  - figure out 4 points between .1 and .6 using even spacing (linspace in matlab) and on the log scale
-  - work on automating code
-
-
+ 
 ## 2016-02-26-13:45
 - Set up go pro camera with light under table and ipad
 - Take video to see how long a new battery lasts
