@@ -13,6 +13,26 @@ This is the project notes file for the moco-3-pattern-psychophysics project.
   
 - Pilot on kids
 
+## 2016-03-15-10:00
+- pilot 4yo participant numbr 1048
+  - participant verbalized or pointed to the chosen answer
+  - researcher used game contorller to enter responses
+  - 2 blocks 2,8
+  - very fidgety participant - needed a break before the block was complete
+  - did not use black cloth around the table 
+  - light at 100%
+  - Only the fixation dot could be seen on the monitor.
+  - brighter video, but add additional light next time. 
+  - blocks took ~ 20 min each - battery was changed after each block
+  
+  
+## 2016-03-14-17:00
+- pilot 4yo participant number 1046
+   - participant used game controller
+   - 4 blocks 2,8,2,8 
+   - videos too dark - next time do not use black cloth around the table
+   
+
 ## 2016-02-26-13:45
 - Set up go pro camera with light under table and ipad
 - Take video to see how long a new battery lasts
