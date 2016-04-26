@@ -13,7 +13,17 @@ This is the project notes file for the moco-3-pattern-psychophysics project.
   
 - Pilot on kids
 
-## 2015-04-07-10:47
+## 2016-04-26-10:00
+- create log spacing between .1 and .6
+  - x = log10(.1)
+  - y = log10(.6)
+  - z = linspace(x,y,4) = [-1.000 -0.7406 -0.4812 -0.2218]   
+  - a = power(10,z) = [0.1000 0.1817 0.3302 0.6000]
+  
+ log spacing between .1 and .6 = [0.1000 0.1817 0.3302 0.6000]
+
+
+## 2016-04-07-10:47
 - Shivani and Raya have been tasked with figuring out 4 points between .1 and .6 using log spacing.
 
 ## 2016-04-06
