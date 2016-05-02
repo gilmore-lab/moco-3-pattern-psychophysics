@@ -13,6 +13,13 @@ This is the project notes file for the moco-3-pattern-psychophysics project.
   
 - Pilot on kids
 
+## 2016-05-02-11:12
+- add data to github.
+	- initial [data](https://github.com/gilmore-lab/moco-3-pattern-psychophysics/tree/master/child-laminar-radial/data) and 4yo data is added to [data/pilot](https://github.com/gilmore-lab/moco-3-pattern-psychophysics/tree/master/child-laminar-radial/data/pilot)
+
+## 2016-04-29-13:00
+- add video data to box: /b-gilmore-lab-group Shared/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/child-laminar-radial/data/video 	
+
 ## 2016-04-26-10:00
 - create log spacing between .1 and .6
   - x = log10(.1)
