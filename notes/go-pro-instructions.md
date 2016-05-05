@@ -16,9 +16,12 @@
 - Turn on the iPad
 - Press **settings** icon and choose the network **rogilmore**. Press the home button to close the settings window
 - Press the **GoPro** icon. 
-- Tilt the iPad so that the image can be seen in the correct orientation.
+- Tilt the iPad so that the image can be seen in the landscape orientation.
 - Press the **red record** button in the bottom center of the screen to start recording. press this button again to stop recording
 - While a study is in progress, press the eye shaped button in the bottom right corner to turn the preview on and off.
+
+- If video is not selected, press the XX button and press the XX button
+
 
 
 ## Battery Notes
@@ -29,5 +32,3 @@
 
 ## Testing
 - Recording, WiFi on, Preview on - Battery lasted ~ 1:05 min
-- Recording, WiFi on, Preview off - Battery lasted ~ XX min
-- Recording, WiFi off - Battery lasted ~ XX min

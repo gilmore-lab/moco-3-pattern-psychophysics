@@ -3,6 +3,18 @@
 Author: Andrea Seisler  
 Created: 2015-09-25  
 Updated: 2016-01-13 -include instructions for use of USB gamepad  
+## Set up Lighting
+
+1. Turn off the overhead light.
+2. Turn on the under desk lighting to 100% using the remote control.
+
+## Set up Camera
+
+1. Follow [GoPro](go-pro-instructions.md) procedures to start up the camera and Wifi
+2. At the beginning of each block show the number of fingers for the block number
+3. Turn camera off at the end of each block
+ 	
+## Set up Computer
 1. Use Mac in room 449A Moore2. Log in to Admin Rick Gilmore account with password imac1234%3. Make sure connected to psu Wifi4. Open MATLAB by clicking on the logo on bottom toolbar (**Matlab_R2013b**)  
   ![Matlab icon](imgs/Matlab-icon.png)  5. Enter command: rdkMain(‘oldload’)     The following should come up:     ![Select File to Load](imgs/Choose-file.jpg)  
 6. Navigate to:    ![Select File to Load](imgs/Choose-file2.jpg)  7. Open src->local->exec->RDK->exp->  
@@ -15,10 +27,14 @@ Updated: 2016-01-13 -include instructions for use of USB gamepad
       - coherence = [.2,.4,.6,.8]   
          
       8. Choose which input device will be used for the experiment  
-9. Participants should be seated 60 cm from the monitor10. Participant Instructions:   
+9. Participants should be seated 60 cm from the monitor
+10. Participant Instructions (adult):   
     - Fixate on the dot in the center of the display and to use your peripheral vision to determine which of the displays exhibits an optic flow pattern.
     - There is a 10 second response time limit
-    - We will take a break half way through the study.
+    - We will take a break half way through the study.  
+    Participant Instructions (child):
+    - Look at the dot in the middle of the screen
+    - Point to the image which is moving up and down or in and out.
 11. Participant will see welcome screen
 12. Next PsychToolbox screen will show briefly
 13. A blank screen will appear
@@ -75,7 +91,7 @@ Adult Sessions
 
 Child Sessions
 
-- Session files are stored on ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/child-laminar-radial/data in a directory with the session test date and a 4 digit participant number (YYMMDDSSSS).
+- Session files are stored on ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/child-laminar-radial/data in a directory with the session test date(YYMMDD), 4 digit participant number (SSSS), Block(X) and Speed(Y): (YYMMDDSSSSXY).
 ## Data merging, cleaning with RStudio
 
 - An [RStudio](http://www.rstudio.com/) project is located in ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/adult-laminar-radial/analysis

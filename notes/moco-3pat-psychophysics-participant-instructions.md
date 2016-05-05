@@ -8,7 +8,7 @@
 
 ## Light Location
 - Place the light underneath the desk. Ensure it is bright enough that the video can be seen, but dark enough that the participant does not have any difficulty viewing the display.
-- Light level 100% with 1 light bar is enough that the fixation dot may be seen on the monitor
+- Light level 100% with 3 light bars is enough that the fixation dot may be seen on the monitor
 
 ## Participant Location
 1. Have the participant sit in the chair in front of the monitor. Raise or lower the chair as necessary.
@@ -16,8 +16,8 @@
 3. The participant should be seated 60 cm from the monitor
 
 ## Participant Age
-- 4-5 year olds will point or verbalize which image they choose
-- 6-8 year olds will utilize the game controller
+- 4 year olds are too young for this study.
+- 5-8 year olds will point or verbalize which image they choose
 - adults will use the keyboard input
 
 ## Participant Instructions
