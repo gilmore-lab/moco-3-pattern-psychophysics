@@ -24,7 +24,7 @@ The following should come up:
 
 -  Navigate to:
 
-![Select File to Load](imgs/Choose-file2.jpg)
+![Select File to Load](../imgs/Choose-file2.jpg)
 
 -   To change parameters: select an obj.mat file from a participant folder in the exp folder (see below).
 
@@ -43,7 +43,7 @@ The following should come up:
 - Prior to each iteration of dot generation, RDK will request a new testing date/time for that dot set.
 - Note that this option does not present dots in any way. It simply “prepares” dots for future use. The files generated are Matlab data structures containing (among other items) bitmaps of the two dot display regions for each frame in the movie.
 
-![Prepare Stimuli](imgs/rdkmain-prepare.png)
+![Prepare Stimuli](../imgs/rdkmain-prepare.png)
 
 
 - The resulting file is created in the folder: /Users/admin_rickgilmore/Documents/MATLAB/src/local/exec/RDK/exp/YYYYMMDD_HHMM/obj.mat
@@ -56,7 +56,7 @@ The following should come up:
 - This is useful for seeing the effects of particular parameters.
 - The resulting file is created in the folder: /Users/admin_rickgilmore/Documents/MATLAB/src/local/exec/RDK/exp/YYYYMMDD_HHMM/obj.mat
 
-![Create New Run](imgs/rdkmain-newrun.png)
+![Create New Run](../imgs/rdkmain-newrun.png)
 
 
 ## Old load
@@ -70,11 +70,11 @@ The following should come up:
 Enter command: rdkMain(‘oldload’)  
 The following should come up:
 
-![Open File](imgs/Choose-file.jpg)  
+![Open File](../imgs/Choose-file.jpg)  
 
 Navigate to:
 
-![Navigate To obj.mat](imgs/Choose-file2.jpg)
+![Navigate To obj.mat](../imgs/Choose-file2.jpg)
 
 Choose which input device will be used for the experiment.  
 
@@ -94,7 +94,7 @@ Choose which input device will be used for the experiment.
 7. Choose which display is exhibiting motion coherence by pressing the **lkey** for the left or the **rkey** key for the right
 8. Repeat steps 4-7 until the program ends
 
-![Moco Psychophysics Sample Display](imgs/sample-display-small.jpg)
+![Moco Psychophysics Sample Display](../imgs/sample-display-small.jpg)
 
 ## Response Keys
 |code name| keyboard    | USB 12 button gamepad| Description            | 
@@ -110,7 +110,7 @@ Choose which input device will be used for the experiment.
 
 - After experiment is complete, an YYYY-MM-DD-HH-MM-SS.csv is created in the Experimental Condition folder.
 
-![Output File](imgs/output-file-path.jpg)
+![Output File](../imgs/output-file-path.jpg)
 
 
 - Select the YYYY-MM_DD-HH-MM-SS.csv file to view participant performance (Ctrl+Click \>\> Select *Open Outside Matlab*)
@@ -123,7 +123,7 @@ Adult Sessions
 
 Child Sessions
 
-- Session files are stored on ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/child-laminar-radial/data in a directory with the session test date and a 4 digit participant number (YYMMDDSSSS).
+- Session files are stored on ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/child-laminar-radial/data in a directory with the session test date [YYMMDD], a 4 digit participant number [PPPP], Block [1-4], and Speed [2,8] (YYMMDDPPPPBS).
 
 ## Data merging, cleaning with RStudio
 
@@ -145,13 +145,13 @@ Child Sessions
 
 - To manipulate experimental parameters prior to dot generation, open the **ObjSet.m**, and adjust the values below.
 
-  ![Define Experimental Parameters](imgs/ObjSet-define-parameters.png)  
+  ![Define Experimental Parameters](../imgs/ObjSet-define-parameters.png)  
  
 - Highlighted are the parameters that are flexible to change (except exp.fr).
 
 - To manipulate the input keys for responses, open the **inputDevice.m**
 
-  ![Define input keys](imgs/inputDevice-define-keys.png)  
+  ![Define input keys](../imgs/inputDevice-define-keys.png)  
 
 - Always verify changes with those with experience before saving.
 
