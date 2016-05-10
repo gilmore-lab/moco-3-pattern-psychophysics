@@ -11,9 +11,20 @@ Andrea Seisler 2015-12-15 Add Images
 
 ## Startup
 
--  Use Mac in room 449A Moore-  Log in to Admin Rick Gilmore account with password imac1234%-  Make sure connected to psu Wifi-  Open MATLAB by clicking on the logo on bottom toolbar (**Matlab_R2013b**)  
-![Matlab icon](imgs/Matlab-icon.png)-  Enter command: rdkMain(‘oldload’)  The following should come up:![Select File to Load](imgs/Choose-file.jpg)  
--  Navigate to:![Select File to Load](imgs/Choose-file2.jpg)
+-  Use Mac in room 449A Moore
+-  Log in to Admin Rick Gilmore account with password imac1234%
+-  Make sure connected to psu Wifi
+-  Open MATLAB by clicking on the logo on bottom toolbar (**Matlab_R2013b**)  
+![Matlab icon](../imgs/Matlab-icon.png)
+
+-  Enter command: rdkMain(‘oldload’)  
+The following should come up:
+
+![Select File to Load](../imgs/Choose-file.jpg)  
+
+-  Navigate to:
+
+![Select File to Load](imgs/Choose-file2.jpg)
 
 -   To change parameters: select an obj.mat file from a participant folder in the exp folder (see below).
 
@@ -56,7 +67,8 @@ Andrea Seisler 2015-12-15 Add Images
 
 - As such, ‘oldload’ will start dot presentation as soon as an obj.mat is selected.
 
-Enter command: rdkMain(‘oldload’)  The following should come up:
+Enter command: rdkMain(‘oldload’)  
+The following should come up:
 
 ![Open File](imgs/Choose-file.jpg)  
 
@@ -68,7 +80,8 @@ Choose which input device will be used for the experiment.
 
 ## Presentation format
 
-- Participants should be seated 60 cm from the monitor- Participant Instructions:   
+- Participants should be seated 60 cm from the monitor
+- Participant Instructions:   
     - Fixate on the dot in the center of the display and to use your peripheral vision to determine which of the displays exhibits an optic flow pattern.
     - There is a 10 second response time limit
     - We will take a break half way through the study.
