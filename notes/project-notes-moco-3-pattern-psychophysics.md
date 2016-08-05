@@ -1,6 +1,6 @@
 # project-notes-moco-3-pattern-psychophysics
 
-This is the project notes file for the moco-3-pattern-psychophysics project.
+This is the project notes file for the moco-3-pattern-psychophysics project.  
 Databrary volume: [Motion Coherence Thresholds for Child Participants Viewing Linear and Radial Patterns of Optic Flow](https://nyu.databrary.org/volume/218)  
 Box data located at: [child-laminar-radial](https://psu.app.box.com/files/0/f/6187178733/child-laminar-radial)  
 
@@ -8,7 +8,7 @@ Box data located at: [child-laminar-radial](https://psu.app.box.com/files/0/f/61
 - collect data from 25 children 5-8 yrs old.
 - compare child with previously collected adult data  
 
-## 2016-08-05-1059
+## 2016-08-05-10:59
 
 - 26 child participants completed  
 - 4 more participants are scheduled for 8/9/16  
