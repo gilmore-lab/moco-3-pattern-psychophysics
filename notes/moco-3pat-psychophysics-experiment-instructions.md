@@ -98,15 +98,23 @@ Children: 2 runs of each type
 - After experiment is complete, an YYMMDDPPPPBS.csv is created in the Experimental Condition folder.
 
 - Session files are stored on ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/child-laminar-radial/data in a directory with the session test date(YYMMDD), 4 digit participant number (PPPP), Block(B) and Speed(S): (YYMMDDPPPPBS).
-## Data merging, cleaning with RStudio
+## Uploading data to Databrary
+
+- The adult data for this project are shared with Databrary under <http://databrary.org/volume/73>
+- The child data (.mp4 and .csv)for this project are shared with Databrary under <https://nyu.databrary.org/volume/218>
+
+## Uploading to Box  
+
+- Child data are located on [Box](https://psu.app.box.com/files/0/f/9026922610/session-data) at gilmore-lab/projects/optic-flow/optic-flow-psychopyhsics/projects/moco-3-pattern-psychophysics/child-laminar-radial/analysis/session-data
+
+- Child data are also on GitHub in the [moco-3-pattern-psychophysics](https://github.com/gilmore-lab/moco-3-pattern-psychophysics/tree/master/child-laminar-radial/data) repository.
+
+## Data merging, cleaning with RStudio
 
 - An [RStudio](http://www.rstudio.com/) project is located in ~/Box Sync/gilmore-lab/projects/optic-flow/optic-flow-psychophysics/projects/moco-3-pattern-psychophysics/adult-laminar-radial/analysis
 - Open RStudio, then navigate to this directory and open the *analyses.Rproj* file or select this project from the menu.
 - The *william.R* script can be run. It creates and cleans a merged data file, exports new .csv files to subject directories, conducts statistical analyses, and creates several useful plots.
 
-## Uploading data to Databrary
 
-- The adult data for this project are shared with Databrary under <http://databrary.org/volume/73>
-- The child data for this project are shared with Databrary under <https://nyu.databrary.org/volume/218>
 
 ## Protocol for Retrieving Session Data  1.	Open Excel  2.	Open src->local->exec->RDK->exp->20140922_0403  3.	Enable “All Files” at bottom  4.	Open ‘out.csv’  
