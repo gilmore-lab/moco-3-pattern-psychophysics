@@ -1,6 +1,6 @@
 # README.md
 
-These are the R functions needed for the motion coherence psychophysics project.
+These are the R functions needed for the motion coherence psychophysics project. For more information about this project, see our (currently unshared) Databrary volume: <http://databrary.org/volume/218>. We expect to share the dataset once we have submitted the manuscript for review.
 
 - Folders
     - *analyses/data-aggregate/* contains the merged CSV file for all participants across sessions.
