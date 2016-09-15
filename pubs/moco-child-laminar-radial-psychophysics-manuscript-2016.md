@@ -4,7 +4,7 @@
 ### Participants  
 
 #### Experiment 1: Adults
-30 adults (14 male, 16 female; age range: 18.7-23.9; mean age: 20.8 years, SD = X) participated in this study. The sample consisted of young adults recruited from the undergraduate psychology subject pool at the Pennsylvania State University. All participants had normal vision or corrected to normal vision. Written consent was obtained from participants under procedures approved by the Institutional Review Board of The Pennsylvania State University (#37946). The research was conducted according to the principles expressed in the Declaration of Helsinki. Participants were given credit or $10 per hour for their participation. One participant’s data was removed from analysis for failure to follow task instructions. Resulting in 29 adults (X male; age range: X; mean age: X years, SD = X) utilized for analysis.
+30 adults (14 male, 16 female; age range: 18.7-23.9; mean age: 20.8 years, SD = X) participated in this study. The sample consisted of young adults recruited from the undergraduate psychology subject pool at the Pennsylvania State University. All participants had normal vision or corrected to normal vision. Written consent was obtained from participants under procedures approved by the Institutional Review Board of The Pennsylvania State University (#37946). The research was conducted according to the principles expressed in the Declaration of Helsinki. Participants were given credit or $10 per hour for their participation. One participant’s data was removed from analysis for failure to follow task instructions. Resulting in 29 adults 14 male, 15 female; age range: X; mean age: X years, SD = X) utilized for analysis.
 
 #### Experiment 2: Children
 
