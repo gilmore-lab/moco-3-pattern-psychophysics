@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  18 OCT 2016 10:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  18 OCT 2016 11:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1251,7 +1251,7 @@ See the caption package documentation for explanation.
 Here is how much of TeX's memory you used:
  17725 strings out of 493014
  352266 string characters out of 6133351
- 407318 words of memory out of 5000000
+ 407317 words of memory out of 5000000
  20837 multiletter control sequences out of 15000+600000
  29050 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1261,7 +1261,7 @@ ase/8r.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/urw/courier/ucrr8a.p
 fb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></us
 r/local/texlive/2016/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local
 /texlive/2016/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on poster_landscape.pdf (1 page, 819246 bytes).
+Output written on poster_landscape.pdf (1 page, 819252 bytes).
 PDF statistics:
  63 PDF objects out of 1000 (max. 8388607)
  30 compressed objects within 1 object stream
