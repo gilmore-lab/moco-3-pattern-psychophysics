@@ -11,3 +11,5 @@ These are the R functions needed for the motion coherence psychophysics project.
 - Core R scripts/functions
     - *analyses/mport.clean.export.R* creates the aggregate data file stored in *data-aggregate/* from individual session files. `source("analyses/import.clean.R")` to run.
     - *analyses/plot.aggregate.R* imports the aggregate data file and creates some aggregate plots. `source("analyses/plot.aggregate.R")` to run.
+- Reports
+    - To see a summary report `rmarkdown::render("summary-report.Rmd")` or inspect the [HTML](http://rawgit.com/gilmore-lab/moco-3-pattern-psychophysics/master/child-laminar-radial/summary-report.html) or [Rmd](summary-report.Rmd) outputs.

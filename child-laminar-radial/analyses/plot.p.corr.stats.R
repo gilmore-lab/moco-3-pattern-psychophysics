@@ -1,4 +1,22 @@
-library(nlme)
+# Script fragment to run lme analyses on p(corr) and RT
+# and then interpret effects
+
+require(nlme)
+require(dplyr)
+require(ggplot2)
+
+# load data
+df <- read.csv(file = "analyses/data-aggregate/moco-beh-child.csv", header = TRUE)
+
+# Source functions
+fn.list <- list("analyses/summarize.bysub.bycond.R", 
+                "analyses/plot.p.corr.R", 
+                "analyses/plot.rt.R",
+                "analyses/plot.p.corr.by.age.yrs.R")
+lapply(fn.list, source, echo = FALSE, print.eval = FALSE)
+
+# Summary data table to compute p(corr)
+df.bysub.bycond <- summarize.bysub.bycond(df)
 
 # Simple mixed linear modeling
 lme.p.corr <- lme( Pct.Corr ~ ordered(Coh)*PatternType*Speed, 
@@ -38,7 +56,7 @@ p2 <-
   facet_grid( facets = ~ PatternType ) +
   geom_line() +
   geom_pointrange( limits ) +
-  xlim(0,1) +
+  xlim(0, 1) +
   ylim(.5, 1) +
   ylab("p(corr)") +
   xlab("p(coherence)")

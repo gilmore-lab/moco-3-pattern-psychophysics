@@ -27,7 +27,8 @@ plot.p.corr.by.age.yrs <- function(df){
     labs(x="Coherence", y=y_lbl) +
     #guides(color = FALSE) + # suppress legend
     theme.moco.plot + 
-    ggtitle(title_text)
+    ggtitle(title_text) +
+    theme(legend.position="bottom", legend.title=element_blank())
   
   p
 }

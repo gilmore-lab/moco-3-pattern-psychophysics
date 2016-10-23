@@ -17,6 +17,12 @@ lapply(fn.list, source, echo = FALSE, print.eval = FALSE)
 # summarize across participants, conditions
 df.bysub.bycond <- summarize.bysub.bycond(df)
 
+# summary table of age/gender dist
+df.bysub.bycond %>% 
+  group_by(Gender, AgeYrs, SubID) %>% 
+  summarize(num = n()) -> df.gender.age
+xtabs(formula = ~ AgeYrs + Gender, data = df.gender.age)
+
 # Plot p(corr)
 p1 <- plot.p.corr(df.bysub.bycond)
 p1

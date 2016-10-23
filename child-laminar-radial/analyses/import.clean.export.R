@@ -49,7 +49,7 @@ moco.beh.child$Acc <- as.logical(moco.beh.child$Acc)
 moco.beh.child$Acc[is.na(moco.beh.child$Acc)] <- FALSE
 
 # Write summary stats
-moco.beh.child%>% group_by(SubID, PatternType, Speed, Coh) %>% 
+moco.beh.child %>% group_by(SubID, PatternType, Speed, Coh) %>% 
   summarize(N.corr = sum(Acc), N.tot = n(), Pct.Corr = N.corr/N.tot) -> d.summ
 
 # Write data file to csv
