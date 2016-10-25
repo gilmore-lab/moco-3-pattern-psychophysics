@@ -1,5 +1,5 @@
 ---
-title: "summary-report"
+title: "moco-behavior-report"
 author: "Rick O. Gilmore"
 date: "`r Sys.Date()`"
 output: 
@@ -7,13 +7,18 @@ output:
     keep_md: true
     self_contained: true
   ioslides_presentation:
-    css: css/gilmore.css
     incremental: false
     widescreen: true
+params:
+  group: child
+  dpi: 72
+  plot_dev: png
+  plot_titles: FALSE
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, include = FALSE)
+path2figs <- paste('img', params$group, "", sep="/")
+knitr::opts_chunk$set(dpi=params$dpi, dev=params$plot_dev, fig.path=path2figs, fig.width = 8.5, echo = FALSE, include = FALSE, warning = FALSE)
 ```
 
 ```{r initialize}
@@ -23,22 +28,25 @@ require(dplyr)
 require(ggplot2)
 require(knitr)
 
-# load data
-df <- read.csv(file = "analyses/data-aggregate/moco-beh-child.csv", header = TRUE)
-
 # Source functions
-fn.list <- list("analyses/summarize.bysub.bycond.R", 
-                "analyses/plot.p.corr.R", 
+fn.list <- list("analyses/plot.p.corr.R", 
                 "analyses/plot.rt.R",
                 "analyses/plot.p.corr.by.age.yrs.R")
+
+# load and normalize data
+if (params$group == "adult"){
+  source("analyses/normalize.adult.data.R")
+} else if (params$group == "child"){
+  source("analyses/normalize.child.data.R")
+} else {
+  warning("Group unspecified. Using 'child' default.")
+  source("analyses/normalize.child.data.R")
+}
+
 lapply(fn.list, source, echo = FALSE, print.eval = FALSE)
-
-# Summary data table to compute p(corr)
-df.bysub.bycond <- summarize.bysub.bycond(df)
-
 ```
 
-## Summary of participant ages, gender
+## Summary of participant ages, gender: `r params$group` group
 
 ```{r age-gender, echo=FALSE, include=TRUE}
 # Summary table of age/gender dist
@@ -48,38 +56,35 @@ df.bysub.bycond %>%
 kable(xtabs(formula = ~ AgeYrs + Gender, data = df.gender.age))
 ```
 
-## Plot of *p*(corr)
+## Plot of *p*(corr): `r params$group` group
 
 ```{r p.corr.plot, include=TRUE}
 # Plot p(corr)
 p1 <- plot.p.corr(df.bysub.bycond)
 p1
-ggsave(plot = p1, filename = "analyses/img/p.corr.png")
 ```
 
-## Plot of reaction time
+## Plot of reaction time: `r params$group' group
 
 ```{r rt.plot, include=TRUE}
 # Plot RTs
 p2 <- plot.rt(df.bysub.bycond)
 p2
-ggsave(plot = p2, filename = "analyses/img/rt.png")
 ```
 
-## Plot of *p*(corr) by age in years
+## Plot of *p*(corr) by age in years: `r params$group` group
 
 ```{r p.corr.by.age, include=TRUE}
 # Plot p(corr) by age
 p3 <- plot.p.corr.by.age.yrs(df.bysub.bycond)
 p3
-ggsave(plot = p3, filename = "analyses/img/p.corr.by.age.yrs.png")
 ```
 
-## Linear mixed effects modeling of *p*(corr)
+## Linear mixed effects modeling of *p*(corr): `r params$group` group
 
 ```{r anova.p.corr, include=TRUE}
 # Simple mixed linear modeling
-lme.p.corr <- lme( Pct.Corr ~ ordered(Coh)*PatternType*Speed, 
+lme.p.corr <- lme( Pct.Corr ~ Coh*PatternType*Speed, 
                    random = ~ 1 | SubID, 
                    data=df.bysub.bycond )
 kable(anova(lme.p.corr))
@@ -122,7 +127,6 @@ p4 <-
 
 ```{r p.corr.by.spd.plot, include=TRUE}
 p4
-ggsave(plot = p4, filename = "analyses/img/p.corr.by.spd.png")
 ```
 
 ## Evaluate Coherence x Pattern interaction
@@ -153,10 +157,4 @@ p5 <-
 
 ```{r coh.by.pattern.plot, include = TRUE}
 p5
-ggsave(plot = p5, filename = "analyses/img/p.corr.by.pattern.png")
 ```
-
-## Observations about *p*(correct)
-
-- Faster (8 deg/s) speed >> slower (2 deg/s)
-- Radial >> Linear
