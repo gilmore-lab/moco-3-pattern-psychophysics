@@ -6,12 +6,12 @@ plot.p.corr <- function(df){
                            axis.title.x = element_text(size=18),
                            axis.title.y = element_text(size=18),
                            strip.text = element_text(size=16),
-                           axis.text = element_text(size=14)
+                           axis.text = element_text(size=12)
   )
   
   y_lbl <- 'p(corr)'
   title_text <- 'p(corr) by Coherence, Pattern, and Speed'
-  p <- ggplot(data=df, aes(x=as.factor(Coh), y=N.corr/N.tot)) 
+  p <- ggplot(data=df, aes(x=Coh, y=N.corr/N.tot)) 
   
   # Plot for all subs
   p <- p + 
@@ -30,7 +30,9 @@ plot.p.corr <- function(df){
     labs(x="Coherence", y=y_lbl) +
     guides(color = FALSE) + # suppress legend
     theme.moco.plot + 
-    ggtitle(title_text)
+    ggtitle(title_text) +
+    xlim(0, 1) +
+    ylim(.5, 1.1)
   
   p    
 }

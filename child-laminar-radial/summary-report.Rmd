@@ -96,6 +96,13 @@ spd.by.coh <- df.bysub.bycond %>%
 
 limits = aes( ymax = Pct.Corr.mean + Pct.Corr.sem , ymin = Pct.Corr.mean - Pct.Corr.sem )
 
+  theme.moco.plot <- theme(plot.title = element_text(size=18, face="bold"),
+                           axis.title.x = element_text(size=18),
+                           axis.title.y = element_text(size=18),
+                           strip.text = element_text(size=16),
+                           axis.text = element_text(size=12)
+  )
+
 p4 <- 
   ggplot( data=spd.by.coh, aes(x=Coh, y=Pct.Corr.mean) ) +
   facet_grid( facets = ~ Speed ) +
@@ -104,7 +111,13 @@ p4 <-
   xlim(0,1) +
   ylim(.5, 1) +
   ylab("p(corr)") +
-  xlab("p(coherence)")
+  xlab("p(coherence)") +
+  theme(plot.title = element_text(size=18, face="bold"),
+                           axis.title.x = element_text(size=18),
+                           axis.title.y = element_text(size=18),
+                           strip.text = element_text(size=16),
+                           axis.text = element_text(size=14)
+  )
 ```
 
 ```{r p.corr.by.spd.plot, include=TRUE}
@@ -121,7 +134,6 @@ patt.by.coh <- df.bysub.bycond %>%
   summarize(Pct.Corr.mean = mean(Pct.Corr, na.rm=TRUE),
             Pct.Corr.sem = sd(Pct.Corr, na.rm=TRUE)/sqrt( n() ))
 
-#qplot(data = patt.by.coh, Coh, Pct.Corr.mean, facets = ~ PatternType)
 p5 <- 
   ggplot( data=patt.by.coh, aes(x=Coh, y=Pct.Corr.mean) ) +
   facet_grid( facets = ~ PatternType ) +
@@ -130,7 +142,13 @@ p5 <-
   xlim(0, 1) +
   ylim(.5, 1) +
   ylab("p(corr)") +
-  xlab("p(coherence)")
+  xlab("p(coherence)") +
+  theme(plot.title = element_text(size=18, face="bold"),
+                           axis.title.x = element_text(size=18),
+                           axis.title.y = element_text(size=18),
+                           strip.text = element_text(size=16),
+                           axis.text = element_text(size=12)
+  )
 ```
 
 ```{r coh.by.pattern.plot, include = TRUE}

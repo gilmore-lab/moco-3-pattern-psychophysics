@@ -8,7 +8,7 @@ plot.p.corr.by.age.yrs <- function(df){
   
   y_lbl <- 'p(corr)'
   title_text <- 'p(corr) by Coherence, Pattern, and Speed'
-  p <- ggplot(data=df, aes(x=as.factor(Coh), y=N.corr/N.tot)) 
+  p <- ggplot(data=df, aes(x=Coh, y=N.corr/N.tot)) 
   
   # Plot for all subs
   p <- p + 
@@ -28,7 +28,8 @@ plot.p.corr.by.age.yrs <- function(df){
     #guides(color = FALSE) + # suppress legend
     theme.moco.plot + 
     ggtitle(title_text) +
-    theme(legend.position="bottom", legend.title=element_blank())
-  
+    theme(legend.position="bottom", legend.title=element_blank()) +
+    xlim(0, 1) +
+    ylim(.5, 1.1)
   p
 }
