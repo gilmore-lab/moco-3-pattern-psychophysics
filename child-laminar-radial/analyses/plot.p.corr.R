@@ -15,24 +15,27 @@ plot.p.corr <- function(df){
   
   # Plot for all subs
   p <- p + 
-    geom_point(aes(color=as.factor(SubID))) + 
-    geom_smooth(aes(color=as.factor(SubID), 
-                    group=as.factor(SubID)), 
-                linetype="dashed", 
-                method="lm", 
-                formula=y~poly(x,2), se=F) +
-    geom_smooth(aes(group=1), 
-                method="lm", 
-                size=2, 
-                color="white", 
-                formula = y ~ poly(x,2), se=T) +
+    #geom_point(alpha=.2) + 
+    geom_line(aes(group=SubID)) +
+    # geom_smooth(aes(group=as.factor(SubID))) +
+    #geom_smooth(aes(group=1), size=2, color="white") +
+    # geom_smooth(aes(color=as.factor(SubID), 
+    #                 group=as.factor(SubID)), 
+    #             linetype="dashed", 
+    #             method="lm", 
+    #             formula=y~poly(x,2), se=F) +
+    # geom_smooth(aes(group=1), 
+    #             method="lm", 
+    #             size=2, 
+    #             color="white", 
+    #             formula = y ~ poly(x,2), se=T) +
     facet_grid(facets = Speed ~ PatternType) +
     labs(x="Coherence", y=y_lbl) +
     guides(color = FALSE) + # suppress legend
     theme.moco.plot + 
     ggtitle(title_text) +
     xlim(0, 1) +
-    ylim(.5, 1.1)
+    ylim(.3,1.1)
   
   p    
 }

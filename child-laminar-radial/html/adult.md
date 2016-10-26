@@ -23,35 +23,31 @@ Rick O. Gilmore
 
 ![](img/adult/p.corr.plot-1.png)<!-- -->
 
-## Plot of reaction time: `r params$group' group
+## Plot of reaction time: adult group
 
 ![](img/adult/rt.plot-1.png)<!-- -->
-
-## Plot of *p*(corr) by age in years: adult group
-
-![](img/adult/p.corr.by.age-1.png)<!-- -->
 
 ## Linear mixed effects modeling of *p*(corr): adult group
 
 
                          numDF   denDF       F-value     p-value
 ----------------------  ------  ------  ------------  ----------
-(Intercept)                  1     443   2394.778504   0.0000000
-Coh                          1     443    564.332328   0.0000000
-PatternType                  1     443     13.252590   0.0003043
-Speed                        1     443      4.337903   0.0378459
-Coh:PatternType              1     443     25.961213   0.0000005
-Coh:Speed                    1     443      0.060218   0.8062654
-PatternType:Speed            1     443      3.631913   0.0573286
-Coh:PatternType:Speed        1     443      1.992820   0.1587484
+(Intercept)                  1     443   217.5282754   0.0000000
+Coh                          1     443   426.8725684   0.0000000
+PatternType                  1     443     6.5638986   0.0107366
+Speed                        1     443     2.7280205   0.0993100
+Coh:PatternType              1     443    17.0116190   0.0000444
+Coh:Speed                    1     443     0.0301918   0.8621351
+PatternType:Speed            1     443     4.6195483   0.0321506
+Coh:PatternType:Speed        1     443     3.1144806   0.0782882
 
-## Evaluate Coherence x Speed interaction
+## Evaluate Speed effect
 
 
 
 ![](img/adult/p.corr.by.spd.plot-1.png)<!-- -->
 
-## Evaluate Coherence x Pattern interaction
+## Evaluate Pattern effects
 
 
 

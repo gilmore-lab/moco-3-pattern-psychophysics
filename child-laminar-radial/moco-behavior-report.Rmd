@@ -32,6 +32,7 @@ require(knitr)
 fn.list <- list("analyses/plot.p.corr.R", 
                 "analyses/plot.rt.R",
                 "analyses/plot.p.corr.by.age.yrs.R")
+lapply(fn.list, source, echo = FALSE, print.eval = FALSE)
 
 # load and normalize data
 if (params$group == "adult"){
@@ -43,7 +44,6 @@ if (params$group == "adult"){
   source("analyses/normalize.child.data.R")
 }
 
-lapply(fn.list, source, echo = FALSE, print.eval = FALSE)
 ```
 
 ## Summary of participant ages, gender: `r params$group` group
@@ -64,7 +64,7 @@ p1 <- plot.p.corr(df.bysub.bycond)
 p1
 ```
 
-## Plot of reaction time: `r params$group' group
+## Plot of reaction time: `r params$group` group
 
 ```{r rt.plot, include=TRUE}
 # Plot RTs
@@ -72,25 +72,17 @@ p2 <- plot.rt(df.bysub.bycond)
 p2
 ```
 
-## Plot of *p*(corr) by age in years: `r params$group` group
-
-```{r p.corr.by.age, include=TRUE}
-# Plot p(corr) by age
-p3 <- plot.p.corr.by.age.yrs(df.bysub.bycond)
-p3
-```
-
 ## Linear mixed effects modeling of *p*(corr): `r params$group` group
 
 ```{r anova.p.corr, include=TRUE}
-# Simple mixed linear modeling
-lme.p.corr <- lme( Pct.Corr ~ Coh*PatternType*Speed, 
+# Simple mixed linear modeling on logit(Pct.Corr)
+lme.p.corr <- lme( log(Pct.Corr) ~ Coh*PatternType*Speed, 
                    random = ~ 1 | SubID, 
                    data=df.bysub.bycond )
 kable(anova(lme.p.corr))
 ```
 
-## Evaluate Coherence x Speed interaction
+## Evaluate Speed effect
 
 ```{r coh.by.spd.stats}
 # Evaluate Speed by Coherence interaction
@@ -114,7 +106,7 @@ p4 <-
   geom_line() +
   geom_pointrange( limits ) +
   xlim(0,1) +
-  ylim(.5, 1) +
+  ylim(.3, 1) +
   ylab("p(corr)") +
   xlab("p(coherence)") +
   theme(plot.title = element_text(size=18, face="bold"),
@@ -129,7 +121,7 @@ p4 <-
 p4
 ```
 
-## Evaluate Coherence x Pattern interaction
+## Evaluate Pattern effects
 
 ```{r coh.by.pattern.stats}
 # Evaluate PatternType x Coherence interaction
@@ -144,7 +136,7 @@ p5 <-
   geom_line() +
   geom_pointrange( limits ) +
   xlim(0, 1) +
-  ylim(.5, 1) +
+  ylim(.3, 1) +
   ylab("p(corr)") +
   xlab("p(coherence)") +
   theme(plot.title = element_text(size=18, face="bold"),

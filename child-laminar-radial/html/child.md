@@ -21,35 +21,31 @@ Rick O. Gilmore
 
 ![](img/child/p.corr.plot-1.png)<!-- -->
 
-## Plot of reaction time: `r params$group' group
+## Plot of reaction time: child group
 
 ![](img/child/rt.plot-1.png)<!-- -->
-
-## Plot of *p*(corr) by age in years: child group
-
-![](img/child/p.corr.by.age-1.png)<!-- -->
 
 ## Linear mixed effects modeling of *p*(corr): child group
 
 
-                         numDF   denDF        F-value     p-value
-----------------------  ------  ------  -------------  ----------
-(Intercept)                  1     428   7138.6009013   0.0000000
-Coh                          1     428    284.4363095   0.0000000
-PatternType                  1     428     53.3911843   0.0000000
-Speed                        1     428     18.0007739   0.0000271
-Coh:PatternType              1     428     18.7436630   0.0000186
-Coh:Speed                    1     428      0.6711562   0.4131047
-PatternType:Speed            1     428      0.3755717   0.5403083
-Coh:PatternType:Speed        1     428      1.4353557   0.2315554
+                         numDF   denDF       F-value     p-value
+----------------------  ------  ------  ------------  ----------
+(Intercept)                  1     428   106.5989785   0.0000000
+Coh                          1     428   240.5392908   0.0000000
+PatternType                  1     428    46.2603639   0.0000000
+Speed                        1     428    12.8704304   0.0003724
+Coh:PatternType              1     428    21.9686383   0.0000037
+Coh:Speed                    1     428     0.6809193   0.4097300
+PatternType:Speed            1     428     0.1090524   0.7413872
+Coh:PatternType:Speed        1     428     1.7828600   0.1825082
 
-## Evaluate Coherence x Speed interaction
+## Evaluate Speed effect
 
 
 
 ![](img/child/p.corr.by.spd.plot-1.png)<!-- -->
 
-## Evaluate Coherence x Pattern interaction
+## Evaluate Pattern effects
 
 
 

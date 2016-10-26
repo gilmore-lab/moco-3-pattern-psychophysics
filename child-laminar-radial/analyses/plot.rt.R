@@ -3,32 +3,36 @@ plot.rt <- function(df){
                            axis.title.x = element_text(size=18),
                            axis.title.y = element_text(size=18),
                            strip.text = element_text(size=16),
-                           axis.text = element_text(size=14)
+                           axis.text = element_text(size=12)
   )
   
   y_lbl <- 'RT (s)'
   title_text <- 'RT by Coherence, Pattern, and Speed'
-  p <- ggplot(data=df, aes(x=as.factor(Coh), y=RT.mean))
+  p <- ggplot(data=df, aes(x=Coh, y=RT.mean))
   
   # Plot for all subs
   p <- p + 
-    geom_point(aes(color=as.factor(SubID))) + 
-    geom_smooth(aes(color=as.factor(SubID), 
-                    group=as.factor(SubID)), 
-                linetype="dashed", 
-                method="lm", 
-                formula=y~poly(x,2), se=F) +
-    geom_smooth(aes(group=1), 
-                method="lm", 
-                size=2, 
-                color="white", 
-                formula = y ~ poly(x,2)) +
+    #geom_point() + 
+    geom_line(aes(group=SubID)) +
+    # geom_smooth(size=2, color="white") +
+    # geom_smooth(aes(group=as.factor(SubID))) +
+    # geom_smooth(aes(group=1), size=2, color="white") +
+    # geom_point(aes(color=as.factor(SubID))) + 
+    # geom_smooth(aes(color=as.factor(SubID), 
+    #                 group=as.factor(SubID)), 
+    #             linetype="dashed", 
+    #             method="lm", 
+    #             formula=y~poly(x,2), se=F) +
+    # geom_smooth(aes(group=1), 
+    #             method="lm", 
+    #             size=2, 
+    #             color="white", 
+    #             formula = y ~ poly(x,2)) +
     facet_grid(facets = Speed ~ PatternType) +
+    xlim(0, 1) +
     labs(x="Coherence", y=y_lbl) +
     guides(color = FALSE) + # suppress legend
     theme.moco.plot + 
     ggtitle(title_text)
-  
   p    
-  
 }

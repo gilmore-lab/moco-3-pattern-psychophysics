@@ -12,12 +12,9 @@ plot.p.corr.by.age.yrs <- function(df){
   
   # Plot for all subs
   p <- p + 
-    geom_point() + 
-    geom_smooth(aes(color=as.factor(AgeYrs), 
-                    group=as.factor(AgeYrs)), 
-                linetype="dashed", 
-                method="lm", 
-                formula=y~poly(x,2), se=T) +
+    geom_line() + 
+    # geom_smooth(aes(color=as.factor(AgeYrs), 
+    #                 group=as.factor(AgeYrs)), se=FALSE) +
     # geom_smooth(aes(group=1), 
     #             method="lm", 
     #             size=2, 
@@ -29,7 +26,7 @@ plot.p.corr.by.age.yrs <- function(df){
     theme.moco.plot + 
     ggtitle(title_text) +
     theme(legend.position="bottom", legend.title=element_blank()) +
-    xlim(0, 1) +
+    xlim(0, .8) +
     ylim(.5, 1.1)
   p
 }

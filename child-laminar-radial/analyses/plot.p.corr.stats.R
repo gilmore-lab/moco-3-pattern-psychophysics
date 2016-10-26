@@ -38,8 +38,8 @@ p1 <-
   facet_grid( facets = ~ Speed ) +
   geom_line() +
   geom_pointrange( limits ) +
-  xlim(0,1) +
-  ylim(.5, 1) +
+  xlim(0,.8) +
+  ylim(.3,1.1) +
   ylab("p(corr)") +
   xlab("p(coherence)")
 p1
@@ -55,9 +55,10 @@ p2 <-
   ggplot( data=patt.by.coh, aes(x=Coh, y=Pct.Corr.mean) ) +
   facet_grid( facets = ~ PatternType ) +
   geom_line() +
+  geom_smooth(color="white") +
   geom_pointrange( limits ) +
   xlim(0, 1) +
-  ylim(.5, 1) +
+  ylim(.5, 1.1) +
   ylab("p(corr)") +
   xlab("p(coherence)")
 p2
