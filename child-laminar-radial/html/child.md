@@ -39,13 +39,13 @@ Coh:Speed                    1     428     0.6809193   0.4097300
 PatternType:Speed            1     428     0.1090524   0.7413872
 Coh:PatternType:Speed        1     428     1.7828600   0.1825082
 
-## Evaluate Speed effect
+## Evaluate Speed effects and interactions
 
 
 
 ![](img/child/p.corr.by.spd.plot-1.png)<!-- -->
 
-## Evaluate Pattern effects
+## Evaluate Pattern effects and interactions
 
 
 
