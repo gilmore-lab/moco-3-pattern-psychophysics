@@ -26,4 +26,9 @@ render_all <- function(plot_hires = FALSE, output_form='html_document') {
   
   # Apply it to child and adult groups
   mapply(moco_beh_render, fn=list("moco-behavior-report.Rmd"), group=list("child", "adult"))
+
+  # Generate model reports
+  rmarkdown::render("model-fitting-children.Rmd", output_file = "html/child.models.html")
+  rmarkdown::render("model-fitting-adults.Rmd", output_file = "html/adult.models.html")
+  
 }

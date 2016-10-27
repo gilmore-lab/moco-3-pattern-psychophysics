@@ -24,3 +24,5 @@ moco.beh.adult %>%
             RT.mean=mean(RT),
             RT.sd=sd(RT)) -> 
   df.bysub.bycond
+
+df <- moco.beh.adult

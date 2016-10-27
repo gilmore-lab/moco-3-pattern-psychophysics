@@ -1,0 +1,68 @@
+---
+title: "model-fitting-children"
+author: "Rick O. Gilmore"
+date: "`r Sys.Date()`"
+output: html_document
+  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include=FALSE)
+
+# load libraries
+require(dplyr)
+require(ggplot2)
+require(knitr)
+require(psyphy) # for mafc
+require(lme4)
+
+source("analyses/normalize.child.data.R")
+```
+
+## Estimate full probit model
+
+```{r full.model}
+form.full <- Acc ~ Coh + Speed + PatternType + Coh:Speed + Coh:PatternType + (1|SubID)
+mod.full <- glmer(formula = form.full, family=binomial(mafc.probit(2)), data = df)
+```
+
+```{r summary.full.model, include=TRUE}
+summary(mod.full)
+```
+
+## Estimate reduced model
+
+Drop Coh:PatternType from model.
+
+```{r drop.coh.patt.interaction}
+form.reduced.1 <- Acc ~ Coh + Speed + PatternType + Coh:Speed + (1|SubID)
+mod.reduced.1 <- update(mod.full, formula = form.reduced.1)
+```
+
+```{r summary.drop.coh.patt.interaction, include=TRUE}
+summary(mod.reduced.1)
+```
+
+Now, we compare this reduced model to the full model.
+
+```{r drop.vs.full, include = TRUE}
+anova(mod.full, mod.reduced.1)
+```
+
+This improves the fit. We observe that this model says *p*(correct) increases with increasing coherence, is larger for radial patterns, and the slope of the coherence by *p*(correct) relation is steeper at the faster (8 deg/s) speed.
+
+## Testing age effect
+
+Our plots suggest that there may be an effect of age in years. So, we estimate the influence of age in years as a fixed effect.
+
+```{r age.yrs}
+form.age <- Acc ~ Coh + Speed + PatternType + AgeYrs + Coh:Speed + (1|SubID)
+mod.age <- update(mod.full, formula = form.age)
+```
+
+```{r summary.mod.age}
+summary(mod.age)
+anova(mod.reduced.1, mod.age)
+```
+
+The model including age in years has a better fit. We note that the *p*(corr) is larger for each of the age groups, and that there is an ordinal relationship to the age-related influences on *p*(corr).

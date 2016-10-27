@@ -1,0 +1,52 @@
+---
+title: "model-fitting-children"
+author: "Rick O. Gilmore"
+date: "`r Sys.Date()`"
+output: html_document
+  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include=FALSE)
+
+# load libraries
+require(dplyr)
+require(ggplot2)
+require(knitr)
+require(psyphy) # for mafc
+require(lme4)
+
+source("analyses/normalize.adult.data.R")
+```
+
+## Estimate full probit model
+
+```{r full.model}
+form.full <- Acc ~ Coh + Speed + PatternType + Coh:Speed + Coh:PatternType + (1|SubID)
+mod.full <- glmer(formula = form.full, family=binomial(mafc.probit(2)), data = df)
+```
+
+```{r summary.full.model, include=TRUE}
+summary(mod.full)
+```
+
+## Estimate reduced model
+
+Drop Coh:Speed.
+
+```{r drop.interaction}
+form.reduced.1 <- Acc ~ Coh + Speed + PatternType + Coh:PatternType + (1|SubID)
+mod.reduced.1 <- update(mod.full, formula = form.reduced.1)
+```
+
+```{r summary.drop.interaction, include=TRUE}
+summary(mod.reduced.1)
+```
+
+Now, we compare this reduced model to the full model.
+
+```{r drop.vs.full, include = TRUE}
+anova(mod.full, mod.reduced.1)
+```
+
+The reduced model doesn't change the fit that much, but we prefer simpler models overall, so we will retain it.

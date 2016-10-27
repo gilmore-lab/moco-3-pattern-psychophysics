@@ -43,7 +43,6 @@ if (params$group == "adult"){
   warning("Group unspecified. Using 'child' default.")
   source("analyses/normalize.child.data.R")
 }
-
 ```
 
 ## Summary of participant ages, gender: `r params$group` group
@@ -82,7 +81,7 @@ lme.p.corr <- lme( log(Pct.Corr) ~ Coh*PatternType*Speed,
 kable(anova(lme.p.corr))
 ```
 
-## Evaluate Speed effect
+## Evaluate Speed effects and interactions
 
 ```{r coh.by.spd.stats}
 # Evaluate Speed by Coherence interaction
@@ -121,7 +120,7 @@ p4 <-
 p4
 ```
 
-## Evaluate Pattern effects
+## Evaluate Pattern effects and interactions
 
 ```{r coh.by.pattern.stats}
 # Evaluate PatternType x Coherence interaction
