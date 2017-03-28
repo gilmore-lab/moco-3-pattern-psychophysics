@@ -1,5 +1,5 @@
 ---
-title: "model-fitting-children"
+title: "model-fitting-adults"
 author: "Rick O. Gilmore"
 date: "`r Sys.Date()`"
 output: html_document

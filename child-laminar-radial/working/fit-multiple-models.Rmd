@@ -1,0 +1,178 @@
+---
+title: "fit-multiple-models"
+author: "Rick O. Gilmore"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    self_contained: false
+    code_folding: show
+    toc: true
+    toc_depth: 2
+    toc_float: true
+  github_document: default
+params:
+  SubID: 1059
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include=FALSE)
+
+# load libraries
+require(dplyr)
+require(ggplot2)
+require(knitr)
+require(psyphy) # for mafc
+require(lme4)
+
+source("analyses/normalize.child.data.R")
+```
+
+## Estimate probit
+
+```{r full-probit-model}
+form.full <- Acc ~ Coh + Speed + PatternType + Coh:Speed + Coh:PatternType + (1|SubID)
+mod.probit.full <- glmer(formula = form.full, family=binomial(mafc.probit(2)), data = df)
+```
+
+```{r summary-probit-model, include=TRUE}
+summary(mod.probit.full)
+```
+
+Add probit fit to data frame.
+
+```{r add-probit}
+df$Probit <- predict(mod.probit.full, type="response")
+```
+
+## Estimate logit
+
+```{r full-logit-model}
+mod.logit.full <- update(mod.probit.full, family=binomial(mafc.logit(2)))
+```
+
+```{r summary-logit-model, include=TRUE}
+summary(mod.logit.full)
+```
+
+Add fit to data frame.
+
+```{r add-logit}
+df$Logit <- predict(mod.logit.full, type="response")
+```
+
+## Weibull fit
+
+```{r full-weibull-model}
+mod.weib.full <- update(mod.probit.full, family=binomial(mafc.weib(2)))
+```
+
+```{r summary-weibull-model, include=TRUE}
+summary(mod.weib.full)
+```
+
+Add fit to data frame.
+
+```{r add-weibull}
+df$Weibull <- predict(mod.weib.full, type="response")
+```
+
+## Linear
+
+```{r full-linear-model}
+mod.linear.full <- lmer(formula = form.full, data = df)
+```
+
+```{r summary-weibull-model, include=TRUE}
+summary(mod.linear.full)
+```
+
+## Compare models
+
+### probit v. logit 
+
+```{r probit-v-logit}
+anova(mod.probit.full, mod.logit.full)
+```
+
+Logit is better fit.
+
+### logit vs. Weibull
+
+```{r probit-v-logit}
+anova(mod.logit.full, mod.weib.full)
+```
+
+Logit is the better fit over the Weibull.
+
+## Logit vs. linear
+
+```{r probit-v-logit}
+anova(mod.logit.full, mod.linear.full)
+```
+
+Linear model is the best fit!
+
+## Fine-tuning linear model
+
+It appears we can drop speed.
+
+```{r drop-speed}
+form.nospeed <- Acc ~ Coh + PatternType + Coh:Speed + Coh:PatternType + (1|SubID)
+mod.linear.nospeed <- update(mod.linear.full, formula=form.nospeed)
+anova(mod.linear.full, mod.linear.nospeed)
+```
+This doesn't change things much. Let's also drop the Coh:Speed interaction.
+
+```{r drop-speed}
+form.nospeed.2 <- Acc ~ Coh + PatternType + Coh:PatternType + (1|SubID)
+mod.linear.nospeed.2 <- update(mod.linear.full, formula=form.nospeed.2)
+anova(mod.linear.full, mod.linear.nospeed.2)
+```
+
+This suggests it's wise to keep the full model.
+
+## Plotting observed vs. fitted
+
+Trim the data frame to essential variables, including the linear fits.
+
+```{r trim-df-to-plot}
+df$Pred <- predict(mod.linear.full, type="response")
+df %>% 
+  group_by(AgeYrs, Gender, SubID, PatternType, Speed, Coh, Pred) %>% 
+  summarize(N.corr = sum(Acc), 
+            N.tot = n(), 
+            Pct.Corr = N.corr/N.tot,
+            RT.mean=mean(RT),
+            RT.sd=sd(RT)) -> 
+  df.small
+```
+
+### Observed
+
+```{r p-corr-plot}
+df.small %>%
+  ggplot() +
+  aes(x=Coh, y=Pct.Corr) +
+  geom_point() +
+  facet_grid(facets = Speed ~ PatternType)
+```
+
+### Fitted
+
+```{r p-corr-plot}
+df.small %>%
+  ggplot() +
+  aes(x=Coh, y=Pred) +
+  geom_point() +
+  facet_grid(facets = Speed ~ PatternType)
+```
+
+## Observed vs. fitted
+
+```{r observed-v-fitted}
+df.small %>%
+  ggplot() +
+  aes(x=Pct.Corr, y=Pred) +
+  geom_point() +
+  facet_grid(facets = Speed ~ PatternType)
+```
