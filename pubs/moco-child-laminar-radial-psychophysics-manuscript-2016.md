@@ -10,7 +10,7 @@ All participants had normal vision or corrected to normal vision. Written consen
 
 #### Experiment 2: Children
 
-31 children (X  female; age range: X-X years; mean age: X months (SD=X)) participated in the study. The sample consisted of children drawn from a database of families in Centre County, Pennsylvania. Children were excluded if they were born prematurely, had a history of serious visual or medical problems, epilepsy, or seizures. One participant's data (1045) was excluded due to incomplete data collection.
+31 children (19  female; age range: 5.2-8.6 years; mean age: 6.7 years (SD=1.0)) participated in the study. The sample consisted of children drawn from a database of families in Centre County, Pennsylvania. Children were excluded if they were born prematurely, had a history of serious visual or medical problems, epilepsy, or seizures. One participant's data (1045) was excluded due to incomplete data collection.
 
 ### Stimuli
 
